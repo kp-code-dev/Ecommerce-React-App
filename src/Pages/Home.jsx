@@ -81,7 +81,9 @@ function Home() {
         <div className="section-header">
           <Heading title="Popular Products" />
           <div className="view-all-container">
-            <button className="cta">View All</button>
+            <Link to={"/store/"} className="cta">
+              View All
+            </Link>
           </div>
         </div>
 
