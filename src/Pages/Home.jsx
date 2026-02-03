@@ -18,10 +18,11 @@ import "./Styles/Home.css";
 import ProductCard from "../Components/Product-Card";
 import MarqueeContainer from "../Components/Marquee-Container";
 import Heading from "../Components/Heading";
-import { productsData } from "../Data/productsData";
+import { keyboardsData } from "../Data/keyboardData";
 
 function Home() {
   const [wishlist, setWishlist] = useState([]);
+  const [keyboards] = useState(keyboardsData);
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
@@ -50,7 +51,7 @@ function Home() {
   }, []);
 
   const nextSlide = () => {
-    if (startIndex + itemsPerPage < productsData.length) {
+    if (startIndex + itemsPerPage < keyboards.length) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -97,18 +98,18 @@ function Home() {
         <button
           className="next"
           onClick={nextSlide}
-          disabled={startIndex + itemsPerPage >= productsData.length}
+          disabled={startIndex + itemsPerPage >= keyboards.length}
         >
           <FaArrowRight />
         </button>
 
         <div className="products carousel-view">
-          {productsData
+          {keyboards
             .slice(startIndex, startIndex + itemsPerPage)
-            .map((product) => (
+            .map((keyboard) => (
               <ProductCard
-                key={product.id}
-                product={product}
+                key={keyboard.id}
+                product={keyboard}
                 toggleWishlist={toggleWishlist}
                 wishlist={wishlist}
               />
