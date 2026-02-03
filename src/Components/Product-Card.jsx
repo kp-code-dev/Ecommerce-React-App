@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
 // import { useCart } from "../Context/CartContext";
+import "./css/Product-Card.css";
 
 const iconMap = {
   keyboard: <FaKeyboard />,
@@ -78,8 +79,8 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
           {features &&
             features.map((feature, idx) => (
               <div key={idx} className="feature-box">
-                {getIcon(feature.iconType)}
-                <span>{feature.text}</span>
+                <div className="feature-icon">{getIcon(feature.iconType)}</div>
+                <span className="feature-text">{feature.text}</span>
               </div>
             ))}
         </div>

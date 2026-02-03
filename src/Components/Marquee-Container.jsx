@@ -1,4 +1,5 @@
 import { marqueeData } from "../Data/marqueeData";
+import "./css/Marquee-Container.css";
 
 function MarqueeContainer() {
   return (

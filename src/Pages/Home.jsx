@@ -19,10 +19,28 @@ import ProductCard from "../Components/Product-Card";
 import MarqueeContainer from "../Components/Marquee-Container";
 import Heading from "../Components/Heading";
 import { keyboardsData } from "../Data/keyboardData";
+import { mouseData } from "../Data/mouseData";
 
 function Home() {
   const [wishlist, setWishlist] = useState([]);
-  const [keyboards] = useState(keyboardsData);
+
+  const combinedProducts = [];
+  const maxLength = Math.max(keyboardsData.length, mouseData.length);
+  for (let i = 0; i < maxLength; i++) {
+    if (i < keyboardsData.length) {
+      combinedProducts.push({
+        ...keyboardsData[i],
+        uniqueId: `k-${keyboardsData[i].id}`,
+      });
+    }
+    if (i < mouseData.length) {
+      combinedProducts.push({
+        ...mouseData[i],
+        uniqueId: `m-${mouseData[i].id}`,
+      });
+    }
+  }
+
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
@@ -51,7 +69,7 @@ function Home() {
   }, []);
 
   const nextSlide = () => {
-    if (startIndex + itemsPerPage < keyboards.length) {
+    if (startIndex + itemsPerPage < combinedProducts.length) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -81,13 +99,13 @@ function Home() {
       <section className="popular-products">
         <div className="section-header">
           <Heading title="Popular Products" />
-          <div className="view-all-container">
-            <Link to={"/store/"} className="cta">
-              View All
-            </Link>
-          </div>
         </div>
 
+        <div className="view-all-container">
+          <Link to={"/store/"} className="cta">
+            View All
+          </Link>
+        </div>
         <button
           className="prev"
           onClick={prevSlide}
@@ -98,18 +116,18 @@ function Home() {
         <button
           className="next"
           onClick={nextSlide}
-          disabled={startIndex + itemsPerPage >= keyboards.length}
+          disabled={startIndex + itemsPerPage >= combinedProducts.length}
         >
           <FaArrowRight />
         </button>
 
         <div className="products carousel-view">
-          {keyboards
+          {combinedProducts
             .slice(startIndex, startIndex + itemsPerPage)
-            .map((keyboard) => (
+            .map((product) => (
               <ProductCard
-                key={keyboard.id}
-                product={keyboard}
+                key={product.uniqueId}
+                product={product}
                 toggleWishlist={toggleWishlist}
                 wishlist={wishlist}
               />
