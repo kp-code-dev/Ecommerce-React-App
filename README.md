@@ -1,38 +1,37 @@
 # Gaming Gear Ecommerce Store
 
-A high-performance, cyberpunk-themed ecommerce web application built with React and Vite. This project focuses on a premium gaming aesthetic with neon visuals, smooth animations, and interactive elements.
+A high-performance, cyberpunk-themed ecommerce web application built with React and Vite. This project focuses on a premium gaming aesthetic with neon visuals, smooth animations, and interactive elements designed for the elite gamer.
 
 ## 🚀 Features
 
 ### 🎨 Visual & UI/UX
 
-- **Cyberpunk Aesthetic**: Immersive dark mode with neon orange (`#FF5722`) accents and glitch text effects.
-- **Dynamic Theming**: Global light/dark mode toggle.
-  - _Dark Mode_: Deep black/gray backgrounds with neon orange glow.
-  - _Light Mode_: Crisp blue color palette (`#0D47A1` & `#1565C0`) for a clean look.
+- **Cyberpunk Aesthetic**: Immersive dark mode with neon orange (`#FF5722`) accents, glassmorphism, and glitch text effects.
+- **Premium Design**:
+  - Custom-styled `ProductCard` with inline feature specifications (icons + text).
+  - Deep slate and black backgrounds for a true "gamer" vibe.
+  - Orbitron and Roboto fonts for a futuristic typography hierarchy.
 - **Smooth Animations**:
   - Infinite scrolling brand marquee with seamless loop.
-  - Hover effects on product cards (lift & shine).
-  - Modal pop-in and fade-in text animations.
+  - Hover effects on product cards (lift, glow, & image zoom).
+  - Entry animations for a premium feel.
 
 ### 🛍️ Store Functionality
 
-- **Product Showcase**:
-  - **Interactive Carousel**: Horizontal scrolling for popular products.
-  - **Smart Navigation**: Custom arrow controls with hover effects and "disabled" state logic at list boundaries.
-  - **Entry Animations**: Products slide up and fade in (`slideUpFade`) for a premium feel.
-  - **Wishlist Integration**: Heart icon on every product card to toggle wishlist status (with `empty`/`filled` states).
-- **Interactive Product Cards**:
-  - "Game card" style design with distinct "Buy Now" and "Add to Cart" actions.
-  - Modularized `ProductCard` component for better maintainability.
-- **Shop by Category**:
-  - Grid layout with neon-hover cards for "Gaming Mouse", "Keyboards", "Headsets", etc.
-  - Uses `react-icons` for category visualization.
-- **Why Choose Us**:
-  - Info section highlighting "Trusted Brands", "High Performance", and "Gamer Focused" values.
-- **Build Your PC CTA**:
-  - Parallax-style background section inviting users to configure custom rigs.
-  - Features broken down by Performance, Aesthetics, and Support.
+- **Home Page**:
+  - **Dynamic Carousel**: specialized "Popular Products" slider that interleaves Keyboards and Mice content.
+  - **Marquee**: Rotating list of top gaming brands.
+  - **Category Navigation**: Quick links to Keyboards, Mice, Headsets, and PC Building.
+  - **Why Choose Us**: Value proposition section.
+  - **Build Your PC**: Parallax CTA section for custom rigs.
+- **Store Page**:
+  - **Categorized Listings**: Distinct sections for **Keyboards** and **Mice** with dedicated headers.
+  - **Product Grid**: Responsive grid layout adapting to screen size (`repeat(3, 1fr)` on desktop).
+  - **Smart Data Management**: Separate data files (`keyboardData.js`, `mouseData.js`) for organized product management.
+- **Product Interaction**:
+  - **Wishlist**: Toggle products in/out of wishlist with heart icon.
+  - **Cart System**: `CartContext` implementation for global cart state management.
+  - **Action Buttons**: distinct "Buy Now" (Gradient) and "Add to Cart" (Outline) buttons.
 
 ### 👤 User Interaction & Authentication
 
@@ -43,30 +42,21 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Authentication Modal**:
   - Custom modal with backdrop blur.
   - Toggle between **Log In** and **Sign Up** views.
-  - Real-time form input handling (updates global user state).
-  - Form validation and password visibility toggle.
-  - Background scrolling disabled when modal is open.
+  - Real-time form input handling.
 - **Responsive Navigation**:
   - Mobile-friendly navbar with slide-down menu.
-  - **Expandable Search Bar**:
-    - Desktop: Smooth slide-open animation, click-outside-to-close logic.
-    - Mobile: Optimized full-width search input within the menu.
-    - Two-step interaction: Open -> Type -> Search.
-- **Fully Responsive Layout**:
-  - Standardized breakpoints (`1024px`, `768px`, `480px`) for seamless viewing on all devices.
-  - Mobile-optimized stacking for Footer and Home page sections.
-- **Organized Footer**:
-  - Glassmorphism effect with backdrop blur.
-  - Responsive stacking layout (vertical on mobile, grid on desktop).
-  - Transparent aesthetic with interactive social icons.
+  - **Expandable Search Bar**: Smooth slide-open animation.
+- **Responsive Layout**:
+  - Fully responsive design optimized for Mobile, Tablet, and Desktop.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [React](https://react.dev/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: Vanilla CSS (Custom properties & Animations)
+- **Styling**: Vanilla CSS (Custom properties, CSS Variables, Flexbox/Grid)
+- **State Management**: React Context API (`UserContext`, `CartContext`)
 - **Routing**: [React Router](https://reactrouter.com/)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Si, Fa, Io, Md)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Fa, Pi, etc.)
 
 ## 📦 Installation & Setup
 
@@ -96,12 +86,22 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 
 ## 📂 Project Structure
 
-- `src/Components`: Reusable UI components (Header, Modal, Footer, Product-Card, Marquee-Container, Heading, etc.)
-- `src/Data`: Static data files (productsData.js, marqueeData.jsx)
-- `src/Context`: Global state providers (UserContext, CartContext)
-- `src/Pages`: Route pages (Home, Store, CustomBuilds)
-- `src/Pages/Styles`: Page-specific CSS files
-- `src/App.jsx`: Main application layout and theme provider
+- `src/Components`: Reusable UI components
+  - `Product-Card`: Core component for displaying items with features, price, and actions.
+  - `Header`, `Footer`: Global layout components.
+  - `Modal`: Auth handling.
+  - `Marquee-Container`: Brand showcase.
+- `src/Context`: Global state providers
+  - `UserContext`: Authentication state.
+  - `CartContext`: Shopping cart state.
+- `src/Data`: Static data files
+  - `keyboardData.js`: Keyboard product inventory.
+  - `mouseData.js`: Gaming mouse inventory.
+  - `marqueeData.js`: Brand logos.
+- `src/Pages`: Route pages
+  - `Home.jsx`: Landing page with carousel and sections.
+  - `Store.jsx`: Main catalog page.
+- `src/Pages/Styles` & `src/Components/css`: Dedicated CSS files for modular styling.
 
 ---
 
