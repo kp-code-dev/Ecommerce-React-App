@@ -190,8 +190,6 @@
     text-align: center;
 }
 
-
-
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -264,8 +262,6 @@
     text-align: center;
 }
 
-
-
 .why-us {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -323,8 +319,6 @@
     z-index: 1;
 }
 
-
-
 .build-pc-cta p {
     color: #ddd;
     font-size: 1.2rem;
@@ -340,7 +334,7 @@
     flex-wrap: wrap;
 }
 
-.feature-item {
+.build-pc-features .feature-item {
     background: rgba(20, 20, 20, 0.8);
     backdrop-filter: blur(5px);
     padding: 25px;
@@ -350,34 +344,35 @@
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.feature-item:hover {
+.build-pc-features .feature-item:hover {
     transform: translateY(-15px) scale(1.02);
     border-color: #FF5722;
     box-shadow: 0 10px 30px -10px rgba(255, 87, 34, 0.5);
     background: rgba(30, 30, 30, 0.9);
 }
 
-.feature-icon {
+.build-pc-features .feature-icon {
     font-size: 2.5rem;
     display: block;
     margin-bottom: 15px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     transition: 0.3s;
+    
 }
 
-.feature-item:hover .feature-icon {
+.build-pc-features .feature-item:hover .feature-icon {
     transform: scale(1.2) rotate(5deg);
     text-shadow: 0 0 15px #FF5722;
 }
 
-.feature-item h3 {
+.build-pc-features .feature-item h3 {
     color: white;
     font-family: 'Orbitron', sans-serif;
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
 
-.feature-item p {
+.build-pc-features .feature-item p {
     font-size: 0.9rem;
     color: #aaa;
     margin-bottom: 0;

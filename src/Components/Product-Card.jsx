@@ -39,6 +39,7 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
   } = { ...product, ...props };
 
   const getIcon = (type) => iconMap[type] || null;
+  // const { addToCart } = useCart();
 
   return (
     <div className="cards">
@@ -111,11 +112,7 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
         {inStock ? (
           <>
             <button>Buy Now</button>
-            <button
-            // onClick={() => addToCart(product)}
-            >
-              Add To Cart
-            </button>
+            <button onClick={() => addToCart(product)}>Add To Cart</button>
           </>
         ) : (
           <button
@@ -123,6 +120,9 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
             onClick={() =>
               alert("We will notify you when this item is back in stock!")
             }
+            style={{
+              marginTop: "25px",
+            }}
           >
             Notify Me
           </button>
