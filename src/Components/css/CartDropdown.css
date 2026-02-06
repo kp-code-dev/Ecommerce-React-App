@@ -1,0 +1,219 @@
+.cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    margin-top: 15px;
+    background: rgba(10, 11, 14, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid #333;
+    border-top: 2px solid #FF5722;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    animation: slideDown 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    color: #FF5722;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cart-count {
+    background: rgba(255, 87, 34, 0.2);
+    color: #FF5722;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-right: 5px;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: #FF5722;
+    border-radius: 5px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.cart-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cart-item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+
+.item-price {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    width: max-content;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qty-controls button {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.qty-controls button:hover {
+    color: #FF5722;
+}
+
+.qty-controls span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    min-width: 15px;
+    text-align: center;
+}
+
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.2s;
+    font-size: 0.9rem;
+}
+
+.remove-btn:hover {
+    color: #FF5722; 
+}
+
+.cart-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.checkout-btn {
+    background: linear-gradient(45deg, #FF5722, #FF3D00);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 30px 0;
+    color: #aaa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.empty-icon {
+    font-size: 2rem;
+    color: #333;
+}

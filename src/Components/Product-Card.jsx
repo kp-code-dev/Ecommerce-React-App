@@ -11,7 +11,7 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
-// import { useCart } from "../Context/CartContext";
+import { useCart } from "../Context/CartContext";
 import "./css/Product-Card.css";
 
 const iconMap = {
@@ -39,7 +39,7 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
   } = { ...product, ...props };
 
   const getIcon = (type) => iconMap[type] || null;
-  // const { addToCart } = useCart();
+  const { addToCart } = useCart();
 
   return (
     <div className="cards">

@@ -121,10 +121,28 @@ header {
     color: #ccc;
     transition: all 0.3s ease;
     padding: 5px;
+    position: relative; /* Ensure badge positions relative to button */
 }
 
 #btn:hover {
     color: white;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FF5722;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(255, 87, 34, 0.6);
 }
 
 .navbar-mobile {

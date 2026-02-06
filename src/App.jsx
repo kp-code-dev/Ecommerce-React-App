@@ -5,6 +5,7 @@ import Store from "./Pages/Store";
 import CustomBuilds from "./Pages/CustomBuilds";
 import Click from "./Components/Click";
 import { Change } from "./Components/Change";
+import { CartContextProvider } from "./Context/CartContext";
 import "./App.css";
 
 function App() {
@@ -21,18 +22,20 @@ function App() {
   return (
     <>
       <div className="bg-grid" />
-      <BrowserRouter>
-        <main className="app-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/custom-builds" element={<CustomBuilds />} />
-          </Routes>
-        </main>
-      </BrowserRouter>
-      <Change.Provider value={{ theme, toggleTheme }}>
-        <Click />
-      </Change.Provider>
+      <CartContextProvider>
+        <BrowserRouter>
+          <main className="app-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/store" element={<Store />} />
+              <Route path="/custom-builds" element={<CustomBuilds />} />
+            </Routes>
+          </main>
+        </BrowserRouter>
+        <Change.Provider value={{ theme, toggleTheme }}>
+          <Click />
+        </Change.Provider>
+      </CartContextProvider>
     </>
   );
 }

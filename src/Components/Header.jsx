@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import CartDropdown from "./CartDropdown";
+import { useCart } from "../Context/CartContext";
 import icon from "./icon.png";
 import "./css/Header.css";
 import { FaCartShopping } from "react-icons/fa6";
@@ -11,9 +13,23 @@ function Header() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const { cart } = useCart();
   const searchRef = useRef(null);
+  const inputRef = useRef(null); // Add input ref
   const navigate = useNavigate();
+
+  const cartCount = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+
+  useEffect(() => {
+    // Focus input when searchOpen becomes true
+    if (searchOpen && inputRef.current) {
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 100); // Small delay for CSS transition
+    }
+  }, [searchOpen]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -64,6 +80,7 @@ function Header() {
         <NavLink to={"/custom-builds/"}>Custom Builds</NavLink>
         <div className="search" ref={searchRef}>
           <input
+            ref={inputRef}
             type="text"
             placeholder="Search Products..."
             className={searchOpen ? "active" : ""}
@@ -75,9 +92,13 @@ function Header() {
             <FaSearch />
           </button>
         </div>
-        <button id="btn">
-          <FaCartShopping />
-        </button>
+        <div style={{ position: "relative" }}>
+          <button id="btn" onClick={() => setCartOpen(!cartOpen)}>
+            <FaCartShopping />
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </button>
+          {cartOpen && <CartDropdown onClose={() => setCartOpen(false)} />}
+        </div>
         <button id="btn" onClick={() => setOpen(true)}>
           <BiSolidUserCircle size={30} />
         </button>
@@ -110,9 +131,13 @@ function Header() {
         </div>
       </nav>
       <div className="navbar-mobile-actions">
-        <button id="btn">
-          <FaCartShopping />
-        </button>
+        <div style={{ position: "relative" }}>
+          <button id="btn" onClick={() => setCartOpen(!cartOpen)}>
+            <FaCartShopping />
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </button>
+          {/* Mobile Cart Dropdown could go here, or redirect to cart page */}
+        </div>
         <button id="btn" onClick={() => setOpen(true)}>
           <BiSolidUserCircle size={30} />
         </button>
