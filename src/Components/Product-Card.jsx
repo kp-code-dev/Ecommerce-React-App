@@ -9,6 +9,7 @@ import {
   FaHeadset,
   FaMicrophone,
   FaCheckCircle,
+  FaMicrochip,
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
 import { useCart } from "../Context/CartContext";
@@ -21,6 +22,7 @@ const iconMap = {
   wifi: <FaWifi />,
   headset: <FaHeadset />,
   microphone: <FaMicrophone />,
+  chip: <FaMicrochip />,
 };
 
 function ProductCard({ product, toggleWishlist, wishlist, ...props }) {

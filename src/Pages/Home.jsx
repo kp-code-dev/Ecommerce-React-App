@@ -20,26 +20,30 @@ import MarqueeContainer from "../Components/Marquee-Container";
 import Heading from "../Components/Heading";
 import { keyboardsData } from "../Data/keyboardData";
 import { mouseData } from "../Data/mouseData";
+import { cabinetData } from "../Data/cabinetData";
+import graphicData from "../Data/graphicData";
+import processorData from "../Data/processorData";
 
 function Home() {
   const [wishlist, setWishlist] = useState([]);
 
-  const combinedProducts = [];
-  const maxLength = Math.max(keyboardsData.length, mouseData.length);
-  for (let i = 0; i < maxLength; i++) {
-    if (i < keyboardsData.length) {
-      combinedProducts.push({
-        ...keyboardsData[i],
-        uniqueId: `k-${keyboardsData[i].id}`,
-      });
-    }
-    if (i < mouseData.length) {
-      combinedProducts.push({
-        ...mouseData[i],
-        uniqueId: `m-${mouseData[i].id}`,
-      });
-    }
-  }
+  /* Helper to pick 1 best product from a category */
+  const getBestProduct = (data, prefix) => {
+    const best =
+      data.find((item) => item.bestSeller && item.inStock) ||
+      data.find((item) => item.inStock) ||
+      data[0];
+    return best ? { ...best, uniqueId: `${prefix}-${best.id}` } : null;
+  };
+
+  /* 1 from each category */
+  const combinedProducts = [
+    getBestProduct(keyboardsData, "k"),
+    getBestProduct(mouseData, "m"),
+    getBestProduct(cabinetData, "c"),
+    getBestProduct(processorData, "p"),
+    getBestProduct(graphicData, "g"),
+  ].filter(Boolean);
 
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
