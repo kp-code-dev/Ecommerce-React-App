@@ -19,19 +19,25 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 ### 🛍️ Store Functionality
 
 - **Home Page**:
-  - **Dynamic Carousel**: specialized "Popular Products" slider that interleaves Keyboards and Mice content.
+  - **Smart Product Slider**: Dynamically selects **one best-selling, in-stock product from each category** (Keyboards, Mice, Cabinets, Processors, Graphics Cards) for a curated showcase.
   - **Marquee**: Rotating list of top gaming brands.
   - **Category Navigation**: Quick links to Keyboards, Mice, Headsets, and PC Building.
   - **Why Choose Us**: Value proposition section.
   - **Build Your PC**: Parallax CTA section for custom rigs.
 - **Store Page**:
-  - **Categorized Listings**: Distinct sections for **Keyboards** and **Mice** with dedicated headers.
+  - **Expanded Catalog**: Comprehensive listings for **Keyboards**, **Mice**, **Cabinets**, **Processors**, and **Graphics Cards**.
   - **Product Grid**: Responsive grid layout adapting to screen size (`repeat(3, 1fr)` on desktop).
-  - **Smart Data Management**: Separate data files (`keyboardData.js`, `mouseData.js`) for organized product management.
-- **Product Interaction**:
+  - **Structured Data**: Modular data files for easy management (`keyboardData.js`, `mouseData.js`, `cabinetData.js`, `processorData.js`, `graphicData.js`).
+- **Shopping Mechanics**:
   - **Wishlist**: Toggle products in/out of wishlist with heart icon.
-  - **Cart System**: `CartContext` implementation for global cart state management.
-  - **Action Buttons**: distinct "Buy Now" (Gradient) and "Add to Cart" (Outline) buttons.
+  - **Cart Dropdown**:
+    - **Quick View**: Hover/Click cart icon to see a dropdown summary.
+    - **Quantity Controls**: Adjust item counts (`+`, `-`) or remove items directly from the dropdown.
+    - **Real-time Totals**: Instant price calculation updates.
+    - **Smart Badge**: Cart icon displays a live count badge of total items.
+  - **Search**:
+    - **Auto-Focus**: Search input automatically focuses when opened for instant typing.
+    - **Real-time Navigation**: Navigates to store with search query parameters.
 
 ### 👤 User Interaction & Authentication
 
@@ -89,18 +95,21 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - `src/Components`: Reusable UI components
   - `Product-Card`: Core component for displaying items with features, price, and actions.
   - `Header`, `Footer`: Global layout components.
+  - `CartDropdown`: Interactive shopping cart summary.
   - `Modal`: Auth handling.
   - `Marquee-Container`: Brand showcase.
 - `src/Context`: Global state providers
   - `UserContext`: Authentication state.
-  - `CartContext`: Shopping cart state.
+  - `CartContext`: Shopping cart state with quantity logic.
 - `src/Data`: Static data files
-  - `keyboardData.js`: Keyboard product inventory.
-  - `mouseData.js`: Gaming mouse inventory.
+  - `keyboardData.js`, `mouseData.js`: Peripherals inventory.
+  - `cabinetData.js`: PC Case inventory.
+  - `processorData.js`: CPU inventory.
+  - `graphicData.js`: GPU inventory.
   - `marqueeData.js`: Brand logos.
 - `src/Pages`: Route pages
-  - `Home.jsx`: Landing page with carousel and sections.
-  - `Store.jsx`: Main catalog page.
+  - `Home.jsx`: Landing page with curated product slider.
+  - `Store.jsx`: Main catalog page with all categories.
 - `src/Pages/Styles` & `src/Components/css`: Dedicated CSS files for modular styling.
 
 ---
