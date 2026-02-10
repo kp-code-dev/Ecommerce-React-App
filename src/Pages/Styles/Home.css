@@ -1,3 +1,16 @@
+.theme-switch {
+    backdrop-filter: blur(7px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    z-index: 999;
+    margin: -10px auto;
+    border-radius: 10px
+}
+
 /* ---------- HERO SECTION ---------- */
 .hero {
     height: 80vh;

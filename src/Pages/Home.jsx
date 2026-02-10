@@ -12,12 +12,14 @@ import {
   FaPalette,
   FaShieldAlt,
 } from "react-icons/fa";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./Styles/Home.css";
 import ProductCard from "../Components/Product-Card";
 import MarqueeContainer from "../Components/Marquee-Container";
 import Heading from "../Components/Heading";
+import AppleToggle from "../Components/AppleToggle";
 import { keyboardsData } from "../Data/keyboardData";
 import { mouseData } from "../Data/mouseData";
 import { cabinetData } from "../Data/cabinetData";
@@ -25,6 +27,7 @@ import graphicData from "../Data/graphicData";
 import processorData from "../Data/processorData";
 
 function Home() {
+  const [showThemeBanner, setShowThemeBanner] = useState(true);
   const [wishlist, setWishlist] = useState([]);
 
   /* Helper to pick 1 best product from a category */
@@ -87,6 +90,16 @@ function Home() {
   return (
     <>
       <Header />
+
+      {showThemeBanner && (
+        <div className="theme-switch">
+          <AppleToggle />
+          <button id="btn" onClick={() => setShowThemeBanner(false)}>
+            <IoMdCloseCircleOutline size={30} />
+          </button>
+        </div>
+      )}
+
       <section className="hero">
         <h1>
           Gaming

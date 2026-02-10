@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Store from "./Pages/Store";
 import CustomBuilds from "./Pages/CustomBuilds";
-import Click from "./Components/Click";
-import { Change } from "./Components/Change";
+import AdminDashboard from "./pages/AdminDashboard";
+import { ThemeContext } from "./Components/ThemeContext";
 import { CartContextProvider } from "./Context/CartContext";
 import "./App.css";
 
@@ -20,8 +20,9 @@ function App() {
   }, [theme]);
 
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="bg-grid" />
+
       <CartContextProvider>
         <BrowserRouter>
           <main className="app-content">
@@ -29,14 +30,12 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/store" element={<Store />} />
               <Route path="/custom-builds" element={<CustomBuilds />} />
+              <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
           </main>
         </BrowserRouter>
-        <Change.Provider value={{ theme, toggleTheme }}>
-          <Click />
-        </Change.Provider>
       </CartContextProvider>
-    </>
+    </ThemeContext.Provider>
   );
 }
 

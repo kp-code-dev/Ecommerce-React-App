@@ -1,0 +1,157 @@
+.admin-container {
+  min-height: 100vh;
+  background-color: #050505;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Content Area */
+.admin-body {
+  display: flex;
+  padding-top: 70px; /* Header Height */
+}
+
+.admin-content {
+  margin-left: 70px; /* Constant margin for "floating" effect */
+  transition: margin-left 0.3s ease;
+  min-height: calc(100vh - 70px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+ * Removed the shifted margin to create "floating" effect 
+ * where sidebar overlays content when expanded 
+ */
+.admin-content.shifted {
+  /* No change in margin */
+  margin-left: 70px;
+  /* Optional: filter blur or overlay effect could be added here */
+}
+
+/* Dashboard Main */
+.dashboard-main {
+  padding: 30px;
+  flex: 1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Charts & Tables Containers */
+.chart-container {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.table-container {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ccc;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table th {
+  color: #FF5722;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.admin-table tr:hover {
+  background: rgba(255, 87, 34, 0.05);
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.status-pending { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+.status-completed { background: rgba(0, 230, 118, 0.2); color: #00e676; }
+.status-processing { background: rgba(33, 150, 243, 0.2); color: #2196f3; }
+
+/* Stat Cards */
+.stat-card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid #333;
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.2);
+  border-color: #FF5722;
+}
+
+.stat-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #aaa;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.stat-trend {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.stat-trend.positive { color: #00e676; }
+.stat-trend.negative { color: #ff1744; }
+
+@media (max-width: 768px) {
+  .admin-content { margin-left: 0; }
+  .admin-content.shifted { margin-left: 0; transform: translateX(250px); }
+  .admin-header h2 { display: none; }
+}
