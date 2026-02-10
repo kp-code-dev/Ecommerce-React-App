@@ -55,6 +55,32 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Responsive Layout**:
   - Fully responsive design optimized for Mobile, Tablet, and Desktop.
 
+### 🛡️ Admin Dashboard (`/admin`)
+
+- **Overview**: A comprehensive command center for store management.
+- **Dashboard Tab**:
+  - **Quick Stats**: 4 key metric cards (Sales, Orders, Products, Users) with trend indicators.
+  - **Visuals**: Weekly Sales mini-chart.
+  - **Recent Orders**: Status-coded table for quick order review.
+- **Analytics Tab**:
+  - **Deep Dive**: Monthly revenue, average order value, conversion rates.
+  - **Charts**:
+    - **Revenue Trend**: Line chart visualization.
+    - **Top Products**: Bar chart for product performance.
+    - **Order Status**: Pie chart distribution.
+  - **Interact**: Date range filters for custom data views.
+- **Layout**:
+  - **Collapsible Sidebar**: Smooth animation for maximized workspace.
+  - **Topbar**: Breadcrumbs and quick profile access.
+
+### 🎨 Theme Customization
+
+- **Dark/Light Mode**:
+  - **Apple-Style Toggle**: Premium glassmorphism switch with animated knob.
+  - **Smart Icons**: Sun/Moon icons dynamically change based on theme.
+  - **Persistent State**: Remembers user preference across sessions.
+  - **Global Context**: Theme state managed via `ThemeContext` API.
+
 ## 🛠️ Tech Stack
 
 - **Framework**: [React](https://react.dev/)
@@ -62,6 +88,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Styling**: Vanilla CSS (Custom properties, CSS Variables, Flexbox/Grid)
 - **State Management**: React Context API (`UserContext`, `CartContext`)
 - **Routing**: [React Router](https://reactrouter.com/)
+- **Charts**: [Recharts](https://recharts.org/) (Interactive data visualization)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Fa, Pi, etc.)
 
 ## 📦 Installation & Setup
