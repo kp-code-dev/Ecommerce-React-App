@@ -60,7 +60,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Overview**: A comprehensive command center for store management.
 - **Dashboard Tab**:
   - **Quick Stats**: 4 key metric cards (Sales, Orders, Products, Users) with trend indicators.
-  - **Visuals**: Weekly Sales mini-chart.
+  - **Visuals**: Weekly Sales mini-chart with **theme-consistent grid lines** and **glassmorphism tooltips** (blur + transparency).
   - **Recent Orders**: Status-coded table for quick order review.
 - **Analytics Tab**:
   - **Deep Dive**: Monthly revenue, average order value, conversion rates.
@@ -71,13 +71,14 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **Interact**: Date range filters for custom data views.
 - **Layout**:
   - **Collapsible Sidebar**: Smooth animation for maximized workspace.
-  - **Topbar**: Breadcrumbs and quick profile access.
+  - **Topbar**: Breadcrumbs, **Real-time Notifications dropdown**, and quick profile access.
 
 ### 🎨 Theme Customization
 
 - **Dark/Light Mode**:
+  - **Comfort White Theme**: Premium background using `linear-gradient(180deg, #f5f6fa, #eceff4)` for better readability.
   - **Apple-Style Toggle**: Premium glassmorphism switch with animated knob.
-  - **Smart Icons**: Sun/Moon icons dynamically change based on theme.
+  - **Adaptive Visuals**: Grid background (`bg-grid`) and chart elements dynamically adjust opacity and color based on the selected theme.
   - **Persistent State**: Remembers user preference across sessions.
   - **Global Context**: Theme state managed via `ThemeContext` API.
 
@@ -86,58 +87,51 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Framework**: [React](https://react.dev/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Styling**: Vanilla CSS (Custom properties, CSS Variables, Flexbox/Grid)
-- **State Management**: React Context API (`UserContext`, `CartContext`)
+- **State Management**: React Context API (`UserContext`, `CartContext`, `ThemeContext`)
 - **Routing**: [React Router](https://reactrouter.com/)
 - **Charts**: [Recharts](https://recharts.org/) (Interactive data visualization)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Fa, Pi, etc.)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Fa, Md, etc.)
 
 ## 📦 Installation & Setup
 
-1.  **Clone the repository**
+1. **Clone the repository**
 
-    ```bash
-    git clone <repository-url>
-    cd Ecommerce-React-App
-    ```
+   ```bash
+   git clone <repository-url>
+   cd Ecommerce-React-App
+   ```
 
-2.  **Install dependencies**
+2. **Install dependencies**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-3.  **Run the development server**
+3. **Run the development server**
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-4.  **Build for production**
-    ```bash
-    npm run build
-    ```
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
 ## 📂 Project Structure
 
-- `src/Components`: Reusable UI components
-  - `Product-Card`: Core component for displaying items with features, price, and actions.
-  - `Header`, `Footer`: Global layout components.
-  - `CartDropdown`: Interactive shopping cart summary.
-  - `Modal`: Auth handling.
-  - `Marquee-Container`: Brand showcase.
-- `src/Context`: Global state providers
-  - `UserContext`: Authentication state.
-  - `CartContext`: Shopping cart state with quantity logic.
-- `src/Data`: Static data files
-  - `keyboardData.js`, `mouseData.js`: Peripherals inventory.
-  - `cabinetData.js`: PC Case inventory.
-  - `processorData.js`: CPU inventory.
-  - `graphicData.js`: GPU inventory.
-  - `marqueeData.js`: Brand logos.
-- `src/Pages`: Route pages
-  - `Home.jsx`: Landing page with curated product slider.
-  - `Store.jsx`: Main catalog page with all categories.
-- `src/Pages/Styles` & `src/Components/css`: Dedicated CSS files for modular styling.
+- `src/components`: Reusable UI components
+  - `ProductCard`, `Header`, `Footer`, `Sidebar`, `Topbar`, `StatCard`.
+  - `css/`: Modular CSS files for all components.
+- `src/context`: Global state providers
+  - `UserContext.jsx`: Authentication state.
+  - `CartContext.jsx`: Shopping cart state with quantity logic.
+  - `ThemeContext.jsx`: Theme switching logic and persistence.
+- `src/data`: Static data files
+  - Inventory data files for Keyboards, Mice, Components, etc.
+- `src/pages`: Route pages
+  - `Home.jsx`, `Store.jsx`, `AdminDashboard.jsx`, `CustomBuilds.jsx`.
+  - `styles/`: Page-specific CSS.
 
 ---
 
