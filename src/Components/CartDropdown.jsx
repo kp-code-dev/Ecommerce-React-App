@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 import "./css/CartDropdown.css";
 import { FaShoppingCart, FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";

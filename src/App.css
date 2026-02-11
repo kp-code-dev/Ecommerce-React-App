@@ -50,3 +50,17 @@
   position: relative;
   z-index: 1;
 }
+
+/* Light Mode Global Overrides */
+body.light,
+body.light #root {
+  background: linear-gradient(180deg, #f5f6fa, #eceff4) !important;
+  color: #4a4a4a !important;
+}
+
+body.light .bg-grid {
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 2px, transparent 1px);
+}

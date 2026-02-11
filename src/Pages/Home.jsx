@@ -13,13 +13,13 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./Styles/Home.css";
-import ProductCard from "../Components/Product-Card";
-import MarqueeContainer from "../Components/Marquee-Container";
-import Heading from "../Components/Heading";
-import AppleToggle from "../Components/AppleToggle";
+import ProductCard from "../components/Product-Card";
+import MarqueeContainer from "../components/Marquee-Container";
+import Heading from "../components/Heading";
+import AppleToggle from "../components/AppleToggle";
 import { keyboardsData } from "../Data/keyboardData";
 import { mouseData } from "../Data/mouseData";
 import { cabinetData } from "../Data/cabinetData";

@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Store from "./Pages/Store";
-import CustomBuilds from "./Pages/CustomBuilds";
+import CustomBuilds from "./pages/CustomBuilds";
 import AdminDashboard from "./pages/AdminDashboard";
-import { ThemeContext } from "./Components/ThemeContext";
-import { CartContextProvider } from "./Context/CartContext";
+import { ThemeContext } from "./context/ThemeContext";
+import { CartContextProvider } from "./context/CartContext";
 import "./App.css";
 
 function App() {

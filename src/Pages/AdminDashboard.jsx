@@ -13,48 +13,58 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import Topbar from "../components/Topbar";
 import Sidebar from "../components/Sidebar";
+import StatCard from "../components/StatCard";
 import "../pages/Styles/AdminDashboard.css";
 
 export default function Dashboard() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const { theme } = useContext(ThemeContext);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
+
+  const gridColor =
+    theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)";
 
   // Dummy Data
   const weeklyStats = [
-    { name: "Mon", sales: 4000 },
-    { name: "Tue", sales: 3000 },
-    { name: "Wed", sales: 5000 },
-    { name: "Thu", sales: 2780 },
-    { name: "Fri", sales: 1890 },
-    { name: "Sat", sales: 2390 },
-    { name: "Sun", sales: 3490 },
+    { name: "Mon", sales: 10 },
+    { name: "Tue", sales: 9 },
+    { name: "Wed", sales: 8 },
+    { name: "Thu", sales: 7 },
+    { name: "Fri", sales: 8 },
+    { name: "Sat", sales: 9 },
+    { name: "Sun", sales: 10 },
   ];
 
   const recentOrders = [
-    { id: "#1234", user: "John Doe", amount: "$120", status: "Completed" },
-    { id: "#1235", user: "Jane Smith", amount: "$85", status: "Processing" },
-    { id: "#1236", user: "Bob Johnson", amount: "$200", status: "Pending" },
-    { id: "#1237", user: "Alice Brown", amount: "$45", status: "Completed" },
-    { id: "#1238", user: "Charlie Davis", amount: "$300", status: "Completed" },
+    { id: "#1234", user: "John Doe", amount: "₹ 120", status: "Completed" },
+    { id: "#1235", user: "Jane Smith", amount: "₹ 85", status: "Processing" },
+    { id: "#1236", user: "Bob Johnson", amount: "₹ 200", status: "Pending" },
+    { id: "#1237", user: "Alice Brown", amount: "₹ 45", status: "Completed" },
+    {
+      id: "#1238",
+      user: "Charlie Davis",
+      amount: "₹ 300",
+      status: "Completed",
+    },
   ];
 
   const pieData = [
-    { name: "Completed", value: 400, color: "#00e676" },
-    { name: "Processing", value: 300, color: "#2196f3" },
-    { name: "Pending", value: 300, color: "#ffc107" },
-    { name: "Cancelled", value: 200, color: "#ff1744" },
+    { name: "Completed", value: 10, color: "#00e676" },
+    { name: "Processing", value: 9, color: "#2196f3" },
+    { name: "Pending", value: 9, color: "#ffc107" },
+    { name: "Cancelled", value: 10, color: "#ff1744" },
   ];
 
   const topProducts = [
-    { name: "Mechanical Keyboard", sales: 120 },
-    { name: "Gaming Mouse", sales: 98 },
-    { name: "Curved Monitor", sales: 86 },
-    { name: "RGB Headset", sales: 75 },
-    { name: "Gaming Chair", sales: 65 },
+    { name: "Mechanical Keyboard", sales: 10 },
+    { name: "Gaming Mouse", sales: 9 },
+    { name: "Curved Monitor", sales: 8 },
+    { name: "RGB Headset", sales: 9 },
+    { name: "Gaming Chair", sales: 10 },
   ];
 
   const renderContent = () => {
@@ -64,26 +74,34 @@ export default function Dashboard() {
           <div className="dashboard-view">
             {/* 1. Stat Cards (1 row 4 column) */}
             <div className="stats-grid">
-              <div className="stat-card">
-                <h3>Total Sales</h3>
-                <p className="stat-value">$24,000</p>
-                <span className="stat-trend positive">+12%</span>
-              </div>
-              <div className="stat-card">
-                <h3>Total Orders</h3>
-                <p className="stat-value">1,240</p>
-                <span className="stat-trend positive">+5%</span>
-              </div>
-              <div className="stat-card">
-                <h3>Total Products</h3>
-                <p className="stat-value">150</p>
-                <span className="stat-trend">0%</span>
-              </div>
-              <div className="stat-card">
-                <h3>Active Users</h3>
-                <p className="stat-value">890</p>
-                <span className="stat-trend positive">+8%</span>
-              </div>
+              <StatCard
+                title="Total Sales"
+                value="₹ 24,000"
+                trend="+12%"
+                trendType="positive"
+                onClick={() => setActiveTab("analytics")}
+              />
+              <StatCard
+                title="Total Orders"
+                value="1,240"
+                trend="+5%"
+                trendType="positive"
+                onClick={() => setActiveTab("orders")}
+              />
+              <StatCard
+                title="Total Products"
+                value="150"
+                trend="0%"
+                trendType="neutral"
+                onClick={() => setActiveTab("products")}
+              />
+              <StatCard
+                title="Active Users"
+                value="890"
+                trend="+8%"
+                trendType="positive"
+                onClick={() => setActiveTab("users")}
+              />
             </div>
 
             {/* 2. Mini Line Chart (Weekly) */}
@@ -91,12 +109,18 @@ export default function Dashboard() {
               <h3>Weekly Sales Overview</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={weeklyStats}>
+                  <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
                   <XAxis dataKey="name" stroke="#555" />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#111",
-                      border: "1px solid #333",
+                      backgroundColor: "rgba(0, 0, 0, 0.3)",
+                      backdropFilter: "blur(2px)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      borderRadius: "6px",
+                      color: "#fff",
+                      padding: "0 5px",
                     }}
+                    itemStyle={{ color: "#fff" }}
                   />
                   <Line
                     type="monotone"
@@ -158,10 +182,12 @@ export default function Dashboard() {
               <div className="date-filter">
                 <select
                   style={{
+                    fontFamily: "Rajdhani",
                     padding: "8px",
-                    background: "#222",
-                    color: "#fff",
-                    border: "1px solid #444",
+                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    backdropFilter: "blur(2px)",
+                    color: "rgb(255, 255, 255)",
+                    border: "1px solid rgb(68, 68, 68)",
                     borderRadius: "5px",
                   }}
                 >
@@ -176,12 +202,12 @@ export default function Dashboard() {
             <div className="stats-grid">
               <div className="stat-card">
                 <h3>Monthly Revenue</h3>
-                <p className="stat-value">$12,000</p>
+                <p className="stat-value">₹ 12,000</p>
                 <span className="stat-trend positive">+8%</span>
               </div>
               <div className="stat-card">
                 <h3>Avg Order Value</h3>
-                <p className="stat-value">$85</p>
+                <p className="stat-value">₹ 85</p>
                 <span className="stat-trend negative">-2%</span>
               </div>
               <div className="stat-card">
@@ -210,6 +236,7 @@ export default function Dashboard() {
                 <h3>Top Products Performance</h3>
                 <ResponsiveContainer width="100%" height={300}>
                   <BarChart data={topProducts} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
                     <XAxis type="number" stroke="#555" />
                     <YAxis
                       dataKey="name"
@@ -221,9 +248,14 @@ export default function Dashboard() {
                     <Tooltip
                       cursor={{ fill: "transparent" }}
                       contentStyle={{
-                        backgroundColor: "#111",
-                        border: "1px solid #333",
+                        backgroundColor: "rgba(0, 0, 0, 0.3)",
+                        backdropFilter: "blur(2px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        borderRadius: "6px",
+                        color: "#fff",
+                        padding: "0 5px",
                       }}
+                      itemStyle={{ color: "#fff" }}
                     />
                     <Bar
                       dataKey="sales"
@@ -254,7 +286,15 @@ export default function Dashboard() {
                       ))}
                     </Pie>
                     <Tooltip
-                      contentStyle={{ backgroundColor: "#111", border: "none" }}
+                      contentStyle={{
+                        backgroundColor: "rgba(0, 0, 0, 0.3)",
+                        backdropFilter: "blur(2px)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        borderRadius: "6px",
+                        color: "#fff",
+                        padding: "0 5px",
+                      }}
+                      itemStyle={{ color: "#fff" }}
                     />
                     <Legend />
                   </PieChart>
@@ -321,6 +361,7 @@ export default function Dashboard() {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
         activeTab={activeTab}
+        onTabChange={setActiveTab}
       />
 
       <div className="admin-body">

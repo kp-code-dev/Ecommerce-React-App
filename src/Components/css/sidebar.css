@@ -89,6 +89,7 @@
 }
 
 .menu-item svg {
+  color: #999;
   font-size: 1.2rem;
   min-width: 20px;
 }
@@ -148,6 +149,7 @@
 }
 
 .sidebar.open .link-text {
+  color: #999;
   display: block;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -161,11 +163,66 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* .sidebar.closed .sidebar-footer used to be hidden, now it shows the icon */
 .sidebar.closed .sidebar-footer {
-  display: none;
+  padding: 15px 0;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.collapsed-theme-icon-box {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: #333;
+  padding: 7px;
+}
+
+.faMoon {
+  color: #FF5722;
+  background-color: #333;
+}
+
+.faSun {
+  color: #FFB300;
+  background-color: #eee;
+}
+
+/* Light Mode Overrides */
+body.light .sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+body.light .sidebar-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light .sidebar-menu li {
+  color: #555;
+}
+
+body.light .sidebar-menu li:hover,
+body.light .sidebar-menu li.active {
+  background: rgba(255, 87, 34, 0.1);
+  color: #000;
+}
+
+body.light .menu-arrow {
+  color: #888;
+}
+
+body.light .sidebar-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light .collapsed-theme-icon-box {
+  background-color: #eee;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
 }

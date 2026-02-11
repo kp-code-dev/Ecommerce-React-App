@@ -1,5 +1,6 @@
-import { useState } from "react";
-import AppleToggle from "../Components/AppleToggle";
+import { useState, useContext } from "react";
+import AppleToggle from "./AppleToggle";
+import { ThemeContext } from "../context/ThemeContext";
 import {
   FaBoxOpen,
   FaShoppingCart,
@@ -8,11 +9,14 @@ import {
   FaCog,
   FaChevronDown,
   FaChevronRight,
+  FaMoon,
+  FaSun,
 } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
-import "./css/sidebar.css";
+import "./css/Sidebar.css";
 
 export default function Sidebar({ isOpen, activeTab, onTabChange }) {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [expandedMenu, setExpandedMenu] = useState(null);
 
   const toggleSubMenu = (id) => {
@@ -135,7 +139,30 @@ export default function Sidebar({ isOpen, activeTab, onTabChange }) {
       </ul>
 
       <div className="sidebar-footer">
-        <AppleToggle />
+        {isOpen ? (
+          <AppleToggle />
+        ) : (
+          <div
+            onClick={toggleTheme}
+            className="collapsed-theme-icon"
+            title="Toggle Theme"
+            style={{
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+              padding: "10px",
+            }}
+          >
+            <div className="collapsed-theme-icon-box">
+              {theme === "dark" ? (
+                <FaMoon className="faMoon" size={22} />
+              ) : (
+                <FaSun className="faSun" size={22} />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </aside>
   );

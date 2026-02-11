@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import CartDropdown from "./CartDropdown";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 import icon from "./icon.png";
 import "./css/Header.css";
 import { FaCartShopping } from "react-icons/fa6";

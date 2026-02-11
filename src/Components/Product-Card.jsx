@@ -12,7 +12,7 @@ import {
   FaMicrochip,
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 import "./css/Product-Card.css";
 
 const iconMap = {
