@@ -35,7 +35,7 @@ function Store() {
           {keyboards.map((keyboard) => (
             <ProductCard
               key={keyboard.id}
-              product={keyboard}
+              product={{ ...keyboard, id: `keyboard-${keyboard.id}` }}
               toggleWishlist={toggleWishlist}
               wishlist={wishlist}
               name={keyboard.name}
@@ -59,7 +59,7 @@ function Store() {
           {mouses.map((mouse) => (
             <ProductCard
               key={mouse.id}
-              product={mouse}
+              product={{ ...mouse, id: `mouse-${mouse.id}` }}
               toggleWishlist={toggleWishlist}
               wishlist={wishlist}
               name={mouse.name}
@@ -83,7 +83,7 @@ function Store() {
           {cabinets.map((cabinet) => (
             <ProductCard
               key={cabinet.id}
-              product={cabinet}
+              product={{ ...cabinet, id: `cabinet-${cabinet.id}` }}
               toggleWishlist={toggleWishlist}
               wishlist={wishlist}
               name={cabinet.name}
@@ -107,7 +107,7 @@ function Store() {
           {processors.map((processor) => (
             <ProductCard
               key={processor.id}
-              product={processor}
+              product={{ ...processor, id: `processor-${processor.id}` }}
               toggleWishlist={toggleWishlist}
               wishlist={wishlist}
               name={processor.name}
@@ -131,7 +131,7 @@ function Store() {
           {graphics.map((graphic) => (
             <ProductCard
               key={graphic.id}
-              product={graphic}
+              product={{ ...graphic, id: `graphic-${graphic.id}` }}
               toggleWishlist={toggleWishlist}
               wishlist={wishlist}
               name={graphic.name}

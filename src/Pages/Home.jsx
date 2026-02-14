@@ -36,16 +36,16 @@ function Home() {
       data.find((item) => item.bestSeller && item.inStock) ||
       data.find((item) => item.inStock) ||
       data[0];
-    return best ? { ...best, uniqueId: `${prefix}-${best.id}` } : null;
+    return best ? { ...best, id: `${prefix}-${best.id}` } : null;
   };
 
   /* 1 from each category */
   const combinedProducts = [
-    getBestProduct(keyboardsData, "k"),
-    getBestProduct(mouseData, "m"),
-    getBestProduct(cabinetData, "c"),
-    getBestProduct(processorData, "p"),
-    getBestProduct(graphicData, "g"),
+    getBestProduct(keyboardsData, "keyboard"),
+    getBestProduct(mouseData, "mouse"),
+    getBestProduct(cabinetData, "cabinet"),
+    getBestProduct(processorData, "processor"),
+    getBestProduct(graphicData, "graphic"),
   ].filter(Boolean);
 
   const [startIndex, setStartIndex] = useState(0);
@@ -143,7 +143,7 @@ function Home() {
             .slice(startIndex, startIndex + itemsPerPage)
             .map((product) => (
               <ProductCard
-                key={product.uniqueId}
+                key={product.id}
                 product={product}
                 toggleWishlist={toggleWishlist}
                 wishlist={wishlist}
