@@ -12,7 +12,7 @@
     z-index: 9999;
 }
 
-.modal {
+.auth-modal {
     background-color: #1a1a1a;
     padding: 30px;
     border-radius: 10px;
@@ -24,6 +24,12 @@
     font-family: 'Rajdhani', sans-serif;
     position: relative;
     animation: modalPopIn 0.3s ease forwards;
+}
+
+.auth-modal h2 {
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
 }
 
 @keyframes modalPopIn {
@@ -38,7 +44,7 @@
     }
 }
 
-.modal-header {
+.auth-modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,17 +72,17 @@
     color: #FF5722;
 }
 
-.modal-content {
+.auth-modal-content {
     font-size: 1.1rem;
     color: #ccc;
     opacity: 0;
     animation: textFadeIn 0.8s ease forwards 0.3s;
 }
 
-.modal-form {
+.auth-modal-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 2rem;
 }
 
 input {
@@ -124,7 +130,7 @@ input {
     color: #FF5722;
 }
 
-.modal-btn {
+.auth-modal-btn {
     padding: 10px 20px;
     background: linear-gradient(45deg, #FF5722, #FF3D00);
     color: white;
