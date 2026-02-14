@@ -1,3 +1,9 @@
+import mou1 from "../assets/images/products/mouse/1.png";
+import mou2 from "../assets/images/products/mouse/2.png";
+import mou3 from "../assets/images/products/mouse/3.png";
+import mou4 from "../assets/images/products/mouse/4.png";
+import mou5 from "../assets/images/products/mouse/5.png";
+
 export const mouseData = [
   {
     id: 1,
@@ -8,7 +14,7 @@ export const mouseData = [
     originalPrice: 649,
     discount: 69,
     inStock: true,
-    image: "/images/mouse/1.png",
+    image: mou1,
     bestSeller: false,
     rating: 4.3,
     reviews: 182,
@@ -26,7 +32,7 @@ export const mouseData = [
     originalPrice: 399,
     discount: 46,
     inStock: true,
-    image: "/images/mouse/2.png",
+    image: mou2,
     bestSeller: true,
     rating: 3.6,
     reviews: 5,
@@ -44,7 +50,7 @@ export const mouseData = [
     originalPrice: 999,
     discount: 65,
     inStock: true,
-    image: "/images/mouse/3.png",
+    image: mou3,
     bestSeller: false,
     rating: 4.3,
     reviews: 0,
@@ -62,7 +68,7 @@ export const mouseData = [
     originalPrice: 1299,
     discount: 65,
     inStock: true,
-    image: "/images/mouse/4.png",
+    image: mou4,
     bestSeller: true,
     rating: 4.2,
     reviews: 25,
@@ -80,7 +86,7 @@ export const mouseData = [
     originalPrice: 1299,
     discount: 57,
     inStock: true,
-    image: "/images/mouse/5.png",
+    image: mou5,
     bestSeller: false,
     rating: 3,
     reviews: 0,

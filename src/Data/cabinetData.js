@@ -1,3 +1,9 @@
+import cab1 from "../assets/images/products/cabinets/1.png";
+import cab2 from "../assets/images/products/cabinets/2.png";
+import cab3 from "../assets/images/products/cabinets/3.png";
+import cab4 from "../assets/images/products/cabinets/4.png";
+import cab5 from "../assets/images/products/cabinets/5.png";
+
 export const cabinetData = [
   {
     id: 1,
@@ -8,7 +14,7 @@ export const cabinetData = [
     originalPrice: 2499,
     discount: 32,
     inStock: true,
-    image: "/images/cabinets/1.png",
+    image: cab1,
     bestSeller: false,
     rating: 3.8,
     reviews: 2434,
@@ -27,7 +33,7 @@ export const cabinetData = [
     originalPrice: 6599,
     discount: 65,
     inStock: true,
-    image: "/images/cabinets/2.png",
+    image: cab2,
     bestSeller: true,
     rating: 3.9,
     reviews: 310,
@@ -46,7 +52,7 @@ export const cabinetData = [
     originalPrice: 4799,
     discount: 26,
     inStock: true,
-    image: "/images/cabinets/3.png",
+    image: cab3,
     bestSeller: false,
     rating: 4,
     reviews: 366,
@@ -65,7 +71,7 @@ export const cabinetData = [
     originalPrice: 15300,
     discount: 34,
     inStock: true,
-    image: "/images/cabinets/4.png",
+    image: cab4,
     bestSeller: true,
     rating: 4,
     reviews: 5,
@@ -84,7 +90,7 @@ export const cabinetData = [
     originalPrice: 52400,
     discount: 35,
     inStock: true,
-    image: "/images/cabinets/5.png",
+    image: cab5,
     bestSeller: false,
     rating: 4.6,
     reviews: 124,

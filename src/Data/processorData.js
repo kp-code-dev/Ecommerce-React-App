@@ -1,3 +1,10 @@
+import pro1 from "../assets/images/products/processors/1.png";
+import pro2 from "../assets/images/products/processors/2.png";
+import pro3 from "../assets/images/products/processors/3.png";
+import pro4 from "../assets/images/products/processors/4.png";
+import pro5 from "../assets/images/products/processors/5.png";
+import pro6 from "../assets/images/products/processors/6.png";
+
 const processorData = [
     {
         id: 1,
@@ -8,7 +15,7 @@ const processorData = [
         originalPrice: 42999,
         discount: 64,
         inStock: true,
-        image: "/images/processors/1.png",
+        image: pro1,
         bestSeller: true,
         rating: 4.6,
         reviews: 29241,
@@ -27,7 +34,7 @@ const processorData = [
         originalPrice: 60000,
         discount: 42,
         inStock: true,
-        image: "/images/processors/2.png",
+        image: pro2,
         bestSeller: true,
         rating: 4.8,
         reviews: 2123,
@@ -46,7 +53,7 @@ const processorData = [
         originalPrice: 110000,
         discount: 29,
         inStock: true,
-        image: "/images/processors/3.png",
+        image: pro3,
         bestSeller: false,
         rating: 4.7,
         reviews: 1228,
@@ -65,7 +72,7 @@ const processorData = [
         originalPrice: 26900,
         discount: 34,
         inStock: true,
-        image: "/images/processors/4.png",
+        image: pro4,
         bestSeller: false,
         rating: 4.6,
         reviews: 956,
@@ -84,7 +91,7 @@ const processorData = [
         originalPrice: 59100,
         discount: 33,
         inStock: true,
-        image: "/images/processors/5.png",
+        image: pro5,
         bestSeller: false,
         rating: 4.4,
         reviews: 4237,
@@ -103,7 +110,7 @@ const processorData = [
         originalPrice: 94800,
         discount: 40,
         inStock: true,
-        image: "/images/processors/6.png",
+        image: pro6,
         bestSeller: false,
         rating: 4.5,
         reviews: 787,

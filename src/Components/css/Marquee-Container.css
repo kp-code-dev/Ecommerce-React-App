@@ -1,5 +1,6 @@
 .marquee-container {
-    background: #111;
+    background: #80808030;
+    backdrop-filter: blur(3px);
     padding: 20px 0;
     width: 100%;
     overflow: hidden;

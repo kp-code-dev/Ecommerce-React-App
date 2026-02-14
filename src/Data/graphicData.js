@@ -1,3 +1,10 @@
+import gra1 from "../assets/images/products/graphicsCard/1.png";
+import gra2 from "../assets/images/products/graphicsCard/2.png";
+import gra3 from "../assets/images/products/graphicsCard/3.png";
+import gra4 from "../assets/images/products/graphicsCard/4.png";
+import gra5 from "../assets/images/products/graphicsCard/5.png";
+import gra6 from "../assets/images/products/graphicsCard/6.png";
+
 const graphicData = [
     {
         id: 1,
@@ -8,7 +15,7 @@ const graphicData = [
         originalPrice: 146000,
         discount: 17,
         inStock: true,
-        image: "/images/graphicsCard/1.png",
+        image: gra1,
         bestSeller: true,
         rating: 4.5,
         reviews: 87,
@@ -28,7 +35,7 @@ const graphicData = [
         originalPrice: 396541,
         discount: 23,
         inStock: true,
-        image: "/images/graphicsCard/2.png",
+        image: gra2,
         bestSeller: true,
         rating: 4.4,
         reviews: 98,
@@ -48,7 +55,7 @@ const graphicData = [
         originalPrice: 59500,
         discount: 56,
         inStock: true,
-        image: "/images/graphicsCard/3.png",
+        image: gra3,
         bestSeller: false,
         rating: 4.5,
         reviews: 378,
@@ -68,7 +75,7 @@ const graphicData = [
         originalPrice: 359800,
         discount: 32,
         inStock: true,
-        image: "/images/graphicsCard/4.png",
+        image: gra4,
         bestSeller: false,
         rating: 4.1,
         reviews: 234,
@@ -88,7 +95,7 @@ const graphicData = [
         originalPrice: 55000,
         discount: 11,
         inStock: true,
-        image: "/images/graphicsCard/5.png",
+        image: gra5,
         bestSeller: false,
         rating: 4.7,
         reviews: 69,
@@ -108,7 +115,7 @@ const graphicData = [
         originalPrice: 493153,
         discount: 8,
         inStock: true,
-        image: "/images/graphicsCard/6.png",
+        image: gra6,
         bestSeller: false,
         rating: 4.6,
         reviews: 29,

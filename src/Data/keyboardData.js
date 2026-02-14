@@ -1,3 +1,9 @@
+import key1 from "../assets/images/products/keyboards/1.png";
+import key2 from "../assets/images/products/keyboards/2.png";
+import key3 from "../assets/images/products/keyboards/3.png";
+import key4 from "../assets/images/products/keyboards/4.png";
+import key5 from "../assets/images/products/keyboards/5.png";
+
 export const keyboardsData = [
   {
     id: 1,
@@ -8,7 +14,7 @@ export const keyboardsData = [
     originalPrice: 1899,
     discount: 79,
     inStock: true,
-    image: "/images/keyboards/1.png",
+    image: key1,
     bestSeller: true,
     rating: 4.3,
     reviews: 19,
@@ -26,7 +32,7 @@ export const keyboardsData = [
     originalPrice: 1999,
     discount: 75,
     inStock: false,
-    image: "/images/keyboards/2.png",
+    image: key2,
     bestSeller: false,
     rating: 4.1,
     reviews: 0,
@@ -44,7 +50,7 @@ export const keyboardsData = [
     originalPrice: 1999,
     discount: 45,
     inStock: true,
-    image: "/images/keyboards/3.png",
+    image: key3,
     bestSeller: true,
     rating: 3.9,
     reviews: 51,
@@ -62,7 +68,7 @@ export const keyboardsData = [
     originalPrice: 999,
     discount: 33,
     inStock: true,
-    image: "/images/keyboards/4.png",
+    image: key4,
     bestSeller: false,
     rating: 3.4,
     reviews: 13,
@@ -80,7 +86,7 @@ export const keyboardsData = [
     originalPrice: 1999,
     discount: 65,
     inStock: true,
-    image: "/images/keyboards/5.png",
+    image: key5,
     bestSeller: true,
     rating: 4.1,
     reviews: 1069,
