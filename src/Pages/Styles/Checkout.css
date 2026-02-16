@@ -1,0 +1,206 @@
+.checkout-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  background-color: #050505;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  padding-bottom: 50px;
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.checkout-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.checkout-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #FF5722;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(255, 87, 34, 0.3);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FF5722;
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cart-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cart-summary-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-info img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.item-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #eee;
+}
+
+.item-details p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.item-price {
+  font-weight: bold;
+  color: #FF5722;
+}
+
+.checkout-total {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.total-row.final {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.total-row.final span:last-child {
+  color: #FF5722;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  background: linear-gradient(45deg, #FF5722, #FF3D00);
+  color: white;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+.place-order-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4);
+}
+
+body.light .checkout-page {
+  background-color: #f5f6fa;
+  color: #333;
+}
+
+body.light .checkout-section {
+  background: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+body.light .form-group input,
+body.light .form-group select,
+body.light .form-group textarea {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+body.light .form-group label {
+  color: #555;
+}
+
+body.light .item-details h4 {
+  color: #333;
+}
+
+body.light .cart-summary-item {
+  border-bottom: 1px solid #eee;
+}
+
+body.light .total-row {
+  color: #666;
+}
+
+body.light .total-row.final {
+  color: #333;
+}

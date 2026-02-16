@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Store from "./Pages/Store";
 import CustomBuilds from "./pages/CustomBuilds";
 import AdminDashboard from "./pages/AdminDashboard";
+import Checkout from "./Pages/Checkout";
 import { ThemeContext } from "./context/ThemeContext";
 import { CartContextProvider } from "./context/CartContext";
 import "./App.css";
@@ -31,6 +32,7 @@ function App() {
               <Route path="/store" element={<Store />} />
               <Route path="/custom-builds" element={<CustomBuilds />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </main>
         </BrowserRouter>

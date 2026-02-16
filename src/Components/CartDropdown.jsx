@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import "./css/CartDropdown.css";
 import { FaShoppingCart, FaTrash, FaPlus, FaMinus } from "react-icons/fa";
@@ -7,6 +8,7 @@ import { PiEmpty } from "react-icons/pi";
 function CartDropdown({ onClose }) {
   const { cart, removeFromCart, addToCart, decreaseQuantity } = useCart();
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -24,6 +26,11 @@ function CartDropdown({ onClose }) {
     (acc, item) => acc + item.price * (item.quantity || 1),
     0,
   );
+
+  const handleCheckout = () => {
+    onClose();
+    navigate("/checkout");
+  };
 
   return (
     <div className="cart-dropdown" ref={dropdownRef}>
@@ -85,10 +92,7 @@ function CartDropdown({ onClose }) {
               <span>Total:</span>
               <span>₹{totalPrice.toLocaleString("en-IN")}</span>
             </div>
-            <button
-              className="checkout-btn"
-              onClick={() => alert("Checkout functionality coming soon!")}
-            >
+            <button className="checkout-btn" onClick={handleCheckout}>
               Checkout
             </button>
           </div>
