@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import "./css/CartDropdown.css";
+import { useCart } from "../../context/cartContext";
+import "../css/cartDropdown.css";
 import { FaShoppingCart, FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Heading from "../components/Heading";
-import "./Styles/Checkout.css";
+import { useCart } from "../context/cartContext";
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
+import Heading from "../components/ui/heading";
+import "./css/Checkout.css";
 
 function Checkout() {
   const { cart } = useCart();

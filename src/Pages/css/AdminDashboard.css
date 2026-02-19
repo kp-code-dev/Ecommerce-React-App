@@ -6,14 +6,13 @@
   overflow-x: hidden;
 }
 
-/* Content Area */
 .admin-body {
   display: flex;
-  padding-top: 70px; /* Header Height */
+  padding-top: 70px; 
 }
 
 .admin-content {
-  margin-left: 70px; /* Constant margin for "floating" effect */
+  margin-left: 70px; 
   transition: margin-left 0.3s ease;
   min-height: calc(100vh - 70px);
   width: 100%;
@@ -21,17 +20,9 @@
   flex-direction: column;
 }
 
-/* 
- * Removed the shifted margin to create "floating" effect 
- * where sidebar overlays content when expanded 
- */
 .admin-content.shifted {
-  /* No change in margin */
   margin-left: 70px;
-  /* Optional: filter blur or overlay effect could be added here */
 }
-
-/* Dashboard Main */
 .dashboard-main {
   padding: 30px;
   flex: 1;

@@ -1,14 +1,14 @@
 import { useState } from "react";
-import ProductCard from "../components/Product-Card";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Heading from "../components/Heading";
-import { keyboardsData } from "../Data/keyboardData";
-import { mouseData } from "../Data/mouseData";
-import { cabinetData } from "../Data/cabinetData";
-import processorData from "../Data/processorData";
-import graphicData from "../Data/graphicData";
-import "./styles/Store.css";
+import ProductCard from "../components/product/productCard";
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
+import Heading from "../components/ui/heading";
+import { keyboardsData } from "../data/keyboardData";
+import { mouseData } from "../data/mouseData";
+import { cabinetData } from "../data/cabinetData";
+import processorData from "../data/processorData";
+import graphicData from "../data/graphicData";
+import "./css/Store.css";
 
 function Store() {
   const [wishlist, setWishlist] = useState([]);

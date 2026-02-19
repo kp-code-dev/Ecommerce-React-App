@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaUserCircle, FaBell } from "react-icons/fa";
-import "./css/Topbar.css";
+import "../css/topbar.css";
 
 export default function Topbar({
   isSidebarOpen,
@@ -9,6 +9,11 @@ export default function Topbar({
   onTabChange,
 }) {
   const [showNotifications, setShowNotifications] = useState(false);
+  const [notifications, setNotifications] = useState([
+    "New Order #1239 received",
+    "Server overload warning",
+    "New user registered",
+  ]);
 
   return (
     <header className="admin-header">
@@ -49,15 +54,21 @@ export default function Topbar({
             style={{ position: "relative" }}
           >
             <FaBell size={20} />
-            <span className="badge">3</span>
+            {notifications.length > 0 && (
+              <span className="badge">{notifications.length}</span>
+            )}
           </button>
 
           {showNotifications && (
             <div className="notification-dropdown">
-              <div className="notif-header">Notifications (3)</div>
-              <div className="notif-item unread">New Order #1239 received</div>
-              <div className="notif-item unread">Server overload warning</div>
-              <div className="notif-item unread">New user registered</div>
+              <div className="notif-header">
+                Notifications ({notifications.length})
+              </div>
+              {notifications.map((notif, index) => (
+                <div key={index} className="notif-item unread">
+                  {notif}
+                </div>
+              ))}
               <div className="notif-footer">View All</div>
             </div>
           )}

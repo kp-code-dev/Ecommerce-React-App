@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import { ThemeContext } from "../../context/themeContext";
 import { FaSun, FaMoon } from "react-icons/fa";
-import "./css/AppleToggle.css";
+import "../css/appleToggle.css";
 
 export default function AppleToggle() {
   const { theme, toggleTheme } = useContext(ThemeContext);

@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaPhone, FaMapLocationDot } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
-import "./css/Footer.css";
+import "../css/footer.css";
 
 function Footer() {
   return (

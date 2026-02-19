@@ -5,8 +5,8 @@ import Store from "./Pages/Store";
 import CustomBuilds from "./pages/CustomBuilds";
 import AdminDashboard from "./pages/AdminDashboard";
 import Checkout from "./Pages/Checkout";
-import { ThemeContext } from "./context/ThemeContext";
-import { CartContextProvider } from "./context/CartContext";
+import { ThemeContext } from "./context/themeContext";
+import { CartContextProvider } from "./context/cartContext";
 import "./App.css";
 
 function App() {

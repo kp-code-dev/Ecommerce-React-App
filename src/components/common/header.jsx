@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Modal from "./Modal";
-import CartDropdown from "./CartDropdown";
-import { useCart } from "../context/CartContext";
-import icon from "./icon.png";
-import "./css/Header.css";
+import Modal from "./modal";
+import CartDropdown from "../cart/cartDropdown";
+import { useCart } from "../../context/cartContext";
+import icon from "../../assets/images/logo/logo.svg";
+import "../css/header.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch, FaBars } from "react-icons/fa";
 import { BiSolidUserCircle } from "react-icons/bi";

@@ -14,11 +14,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-import Topbar from "../components/Topbar";
-import Sidebar from "../components/Sidebar";
-import StatCard from "../components/StatCard";
-import "../pages/Styles/AdminDashboard.css";
+import { ThemeContext } from "../context/themeContext";
+import Topbar from "../components/admin/topbar";
+import Sidebar from "../components/admin/sidebar";
+import StatCard from "../components/admin/statCard";
+import "../pages/css/AdminDashboard.css";
 
 export default function Dashboard() {
   const { theme } = useContext(ThemeContext);
@@ -30,41 +30,33 @@ export default function Dashboard() {
 
   // Dummy Data
   const weeklyStats = [
-    { name: "Mon", sales: 10 },
-    { name: "Tue", sales: 9 },
-    { name: "Wed", sales: 8 },
-    { name: "Thu", sales: 7 },
-    { name: "Fri", sales: 8 },
-    { name: "Sat", sales: 9 },
-    { name: "Sun", sales: 10 },
+    { name: "Mon", sales: 0 },
+    { name: "Tue", sales: 0 },
+    { name: "Wed", sales: 0 },
+    { name: "Thu", sales: 0 },
+    { name: "Fri", sales: 0 },
+    { name: "Sat", sales: 0 },
+    { name: "Sun", sales: 0 },
   ];
 
   const recentOrders = [
-    { id: "#1234", user: "John Doe", amount: "₹ 120", status: "Completed" },
-    { id: "#1235", user: "Jane Smith", amount: "₹ 85", status: "Processing" },
-    { id: "#1236", user: "Bob Johnson", amount: "₹ 200", status: "Pending" },
-    { id: "#1237", user: "Alice Brown", amount: "₹ 45", status: "Completed" },
-    {
-      id: "#1238",
-      user: "Charlie Davis",
-      amount: "₹ 300",
-      status: "Completed",
-    },
+    { id: "# ", user: " ", amount: "₹ ", status: "Completed" },
+    { id: "# ", user: " ", amount: "₹ ", status: "Processing" },
   ];
 
   const pieData = [
-    { name: "Completed", value: 10, color: "#00e676" },
-    { name: "Processing", value: 9, color: "#2196f3" },
-    { name: "Pending", value: 9, color: "#ffc107" },
-    { name: "Cancelled", value: 10, color: "#ff1744" },
+    { name: "Completed", value: 0, color: "#00e676" },
+    { name: "Processing", value: 0, color: "#2196f3" },
+    { name: "Pending", value: 0, color: "#ffc107" },
+    { name: "Cancelled", value: 0, color: "#ff1744" },
   ];
 
   const topProducts = [
-    { name: "Mechanical Keyboard", sales: 10 },
-    { name: "Gaming Mouse", sales: 9 },
-    { name: "Curved Monitor", sales: 8 },
-    { name: "RGB Headset", sales: 9 },
-    { name: "Gaming Chair", sales: 10 },
+    { name: "Mechanical Keyboard", sales: 0 },
+    { name: "Gaming Mouse", sales: 0 },
+    { name: "Curved Monitor", sales: 0 },
+    { name: "RGB Headset", sales: 0 },
+    { name: "Gaming Chair", sales: 0 },
   ];
 
   const renderContent = () => {
@@ -76,29 +68,29 @@ export default function Dashboard() {
             <div className="stats-grid">
               <StatCard
                 title="Total Sales"
-                value="₹ 24,000"
-                trend="+12%"
+                value="₹0"
+                trend="0%"
                 trendType="positive"
                 onClick={() => setActiveTab("analytics")}
               />
               <StatCard
                 title="Total Orders"
-                value="1,240"
-                trend="+5%"
+                value="0"
+                trend="0%"
                 trendType="positive"
                 onClick={() => setActiveTab("orders")}
               />
               <StatCard
                 title="Total Products"
-                value="150"
+                value="0"
                 trend="0%"
                 trendType="neutral"
                 onClick={() => setActiveTab("products")}
               />
               <StatCard
                 title="Active Users"
-                value="890"
-                trend="+8%"
+                value="1"
+                trend="0.1%"
                 trendType="positive"
                 onClick={() => setActiveTab("users")}
               />
@@ -202,22 +194,22 @@ export default function Dashboard() {
             <div className="stats-grid">
               <div className="stat-card">
                 <h3>Monthly Revenue</h3>
-                <p className="stat-value">₹ 12,000</p>
-                <span className="stat-trend positive">+8%</span>
+                <p className="stat-value">₹ 0</p>
+                <span className="stat-trend positive">+0.1%</span>
               </div>
               <div className="stat-card">
                 <h3>Avg Order Value</h3>
-                <p className="stat-value">₹ 85</p>
+                <p className="stat-value">₹ 0</p>
                 <span className="stat-trend negative">-2%</span>
               </div>
               <div className="stat-card">
                 <h3>Conversion Rate</h3>
-                <p className="stat-value">2.4%</p>
+                <p className="stat-value">0.1%</p>
                 <span className="stat-trend positive">+0.5%</span>
               </div>
               <div className="stat-card">
                 <h3>Returns</h3>
-                <p className="stat-value">5%</p>
+                <p className="stat-value">0%</p>
                 <span className="stat-trend">0%</span>
               </div>
             </div>

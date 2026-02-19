@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import AppleToggle from "./AppleToggle";
-import { ThemeContext } from "../context/ThemeContext";
+import AppleToggle from "../ui/appleToggle";
+import { ThemeContext } from "../../context/themeContext";
 import {
   FaBoxOpen,
   FaShoppingCart,
@@ -13,7 +13,7 @@ import {
   FaSun,
 } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
-import "./css/Sidebar.css";
+import "../css/sidebar.css";
 
 export default function Sidebar({ isOpen, activeTab, onTabChange }) {
   const { theme, toggleTheme } = useContext(ThemeContext);

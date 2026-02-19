@@ -12,8 +12,8 @@ import {
   FaMicrochip,
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
-import { useCart } from "../context/CartContext";
-import "./css/Product-Card.css";
+import { useCart } from "../../context/cartContext";
+import "../css/productCard.css";
 
 const iconMap = {
   keyboard: <FaKeyboard />,

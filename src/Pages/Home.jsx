@@ -13,18 +13,18 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "./Styles/Home.css";
-import ProductCard from "../components/Product-Card";
-import MarqueeContainer from "../components/Marquee-Container";
-import Heading from "../components/Heading";
-import AppleToggle from "../components/AppleToggle";
-import { keyboardsData } from "../Data/keyboardData";
-import { mouseData } from "../Data/mouseData";
-import { cabinetData } from "../Data/cabinetData";
-import graphicData from "../Data/graphicData";
-import processorData from "../Data/processorData";
+import Header from "../components/common/header";
+import Footer from "../components/common/footer";
+import "./css/Home.css";
+import ProductCard from "../components/product/productCard";
+import MarqueeContainer from "../components/ui/marqueeContainer";
+import Heading from "../components/ui/heading";
+import AppleToggle from "../components/ui/appleToggle";
+import { keyboardsData } from "../data/keyboardData";
+import { mouseData } from "../data/mouseData";
+import { cabinetData } from "../data/cabinetData";
+import graphicData from "../data/graphicData";
+import processorData from "../data/processorData";
 
 function Home() {
   const [showThemeBanner, setShowThemeBanner] = useState(true);

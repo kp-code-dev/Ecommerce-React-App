@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
-import "./css/Modal.css";
+import "../css/modal.css";
 
 function Modal({ open, onClose }) {
   const [showPassword, setShowPassword] = useState(false);
