@@ -323,7 +323,6 @@ export default function Dashboard() {
         return (
           <div className="placeholder-content">
             <h2>Product Management</h2>
-            <p>List of all products with edit/delete actions.</p>
           </div>
         );
       case "orders":

@@ -9,11 +9,7 @@ export default function Topbar({
   onTabChange,
 }) {
   const [showNotifications, setShowNotifications] = useState(false);
-  const [notifications, setNotifications] = useState([
-    "New Order #1239 received",
-    "Server overload warning",
-    "New user registered",
-  ]);
+  const [notifications, setNotifications] = useState([]);
 
   return (
     <header className="admin-header">
@@ -54,21 +50,29 @@ export default function Topbar({
             style={{ position: "relative" }}
           >
             <FaBell size={20} />
-            {notifications.length > 0 && (
+            {notifications.length > 0 ? (
               <span className="badge">{notifications.length}</span>
+            ) : (
+              ""
             )}
           </button>
 
           {showNotifications && (
             <div className="notification-dropdown">
-              <div className="notif-header">
-                Notifications ({notifications.length})
-              </div>
-              {notifications.map((notif, index) => (
-                <div key={index} className="notif-item unread">
-                  {notif}
+              {notifications.length === 0 ? (
+                <div
+                  className="notif-item"
+                  style={{ cursor: "default", color: "#888" }}
+                >
+                  No new notifications
                 </div>
-              ))}
+              ) : (
+                notifications.map((notif, index) => (
+                  <div key={index} className="notif-item unread">
+                    {notif}
+                  </div>
+                ))
+              )}
               <div className="notif-footer">View All</div>
             </div>
           )}
