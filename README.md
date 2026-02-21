@@ -38,6 +38,10 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **Search**:
     - **Auto-Focus**: Search input automatically focuses when opened for instant typing.
     - **Real-time Navigation**: Navigates to store with search query parameters.
+  - **Checkout Flow**:
+    - **Dynamic Payment Options**: Seamless inputs for Credit/Debit Card, UPI (with ID verification), and Cash on Delivery.
+    - **Smart Logic**: Automatically calculates dynamic shipping and applies a flat ₹50 handling fee specifically for COD orders.
+    - **Collision-Free Cart Engine**: Uses category-prefixed unique IDs (e.g., `keyboard-1`) to accurately track distinct items across different hardware categories.
 
 ### 👤 User Interaction & Authentication
 
@@ -47,6 +51,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **User Context**: Global state management for user sessions.
 - **Authentication Modal**:
   - Custom modal with backdrop blur.
+  - **Isolated Styling**: Uses specific `.auth-modal` namespaces to guarantee zero conflicts with external UI libraries like Bootstrap.
   - Toggle between **Log In** and **Sign Up** views.
   - Real-time form input handling.
 - **Responsive Navigation**:
@@ -87,6 +92,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Framework**: [React](https://react.dev/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Styling**: Vanilla CSS (Custom properties, CSS Variables, Flexbox/Grid)
+- **Typography**: Self-hosted Google Fonts via `@fontsource` (Rajdhani, Orbitron) for optimal performance and offline support.
 - **State Management**: React Context API (`UserContext`, `CartContext`, `ThemeContext`)
 - **Routing**: [React Router](https://reactrouter.com/)
 - **Charts**: [Recharts](https://recharts.org/) (Interactive data visualization)
@@ -130,7 +136,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - `src/data`: Static data files
   - Inventory data files for Keyboards, Mice, Components, etc.
 - `src/pages`: Route pages
-  - `Home.jsx`, `Store.jsx`, `AdminDashboard.jsx`, `CustomBuilds.jsx`.
+  - `Home.jsx`, `Store.jsx`, `Checkout.jsx`, `AdminDashboard.jsx`, `CustomBuilds.jsx`.
   - `styles/`: Page-specific CSS.
 
 ---
