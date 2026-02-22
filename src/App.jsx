@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import Store from "./Pages/Store";
-import CustomBuilds from "./pages/CustomBuilds";
-import AdminDashboard from "./pages/AdminDashboard";
-import Checkout from "./Pages/Checkout";
 import { ThemeContext } from "./context/themeContext";
 import { CartContextProvider } from "./context/cartContext";
+import AppRoute from "./routes/AppRoute";
 import "./App.css";
 
 function App() {
@@ -25,17 +20,9 @@ function App() {
       <div className="bg-grid" />
 
       <CartContextProvider>
-        <BrowserRouter>
-          <main className="app-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/store" element={<Store />} />
-              <Route path="/custom-builds" element={<CustomBuilds />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/checkout" element={<Checkout />} />
-            </Routes>
-          </main>
-        </BrowserRouter>
+        <main className="app-content">
+          <AppRoute />
+        </main>
       </CartContextProvider>
     </ThemeContext.Provider>
   );

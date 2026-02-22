@@ -1,0 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
+import Store from "../pages/Store";
+import CustomBuilds from "../pages/CustomBuilds";
+import AdminDashboard from "../pages/AdminDashboard";
+import Checkout from "../pages/Checkout";
+
+function AppRoute() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/custom-builds" element={<CustomBuilds />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default AppRoute;
