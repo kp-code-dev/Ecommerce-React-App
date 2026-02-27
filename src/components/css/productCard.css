@@ -127,7 +127,51 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin: 10px 0;
+    margin: 5px 0;
+}
+
+.current-price {
+    color: #FF5722;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.original-price {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.discount-tag {
+    color: #4CAF50;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.stock-row {
+    margin: 0 !important;
+}
+
+.stock-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.in-stock {
+    color: #4CAF50;
+}
+
+.out-of-stock {
+    color: #f44336;
 }
 
 .rating-container {

@@ -9,9 +9,11 @@ import {
   FaHeadset,
   FaMicrophone,
   FaCheckCircle,
+  FaTimesCircle,
   FaMicrochip,
 } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
 import "../css/productCard.css";
 
@@ -26,6 +28,7 @@ const iconMap = {
 };
 
 function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
+  const navigate = useNavigate();
   const {
     name,
     brand,
@@ -43,15 +46,26 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
   const getIcon = (type) => iconMap[type] || null;
   const { addToCart } = useCart();
 
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
     <div className="cards">
       {bestSeller && <span className="best-seller-badge">Best Seller</span>}
 
-      <div className="image-container">
+      <div
+        className="image-container"
+        onClick={handleCardClick}
+        style={{ cursor: "pointer" }}
+      >
         <img src={image} alt={name} />
         <button
           className="wishlist-btn"
-          onClick={() => toggleWishlist(product.id)}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleWishlist(product.id);
+          }}
         >
           {wishlist.includes(product.id) ? (
             <FaHeart color="#FF5722" />
@@ -61,7 +75,11 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
         </button>
       </div>
 
-      <div className="card-content">
+      <div
+        className="card-content"
+        onClick={handleCardClick}
+        style={{ cursor: "pointer" }}
+      >
         <span className="brand-name">{brand}</span>
         <h3 className="product-name">{name}</h3>
 
@@ -96,25 +114,34 @@ function ProductCard({ product, toggleWishlist, wishlist, ...props }) {
             <span className="original-price">
               ₹{originalPrice.toLocaleString("en-IN")}
             </span>
-            <span className="discount-tag">{discount}% OFF</span>
+            <span className="discount-tag text-green-500">{discount}% OFF</span>
           </div>
-          {inStock ? (
-            <div className="stock-status in-stock">
-              <FaCheckCircle /> In Stock
-            </div>
-          ) : (
-            <div className="stock-status out-of-stock">
-              <PiEmpty /> Out of Stock
-            </div>
-          )}
+          <div className="price-row stock-row">
+            {inStock ? (
+              <span className="stock-status in-stock">
+                <FaCheckCircle size={14} /> In Stock
+              </span>
+            ) : (
+              <span className="stock-status out-of-stock">
+                <FaTimesCircle size={14} /> Out of Stock
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
       <div className="buttons">
         {inStock ? (
           <>
-            <button>Buy Now</button>
-            <button onClick={() => addToCart(product)}>Add To Cart</button>
+            <button onClick={(e) => e.stopPropagation()}>Buy Now</button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(product);
+              }}
+            >
+              Add To Cart
+            </button>
           </>
         ) : (
           <button
