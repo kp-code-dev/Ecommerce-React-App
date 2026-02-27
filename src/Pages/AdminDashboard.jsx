@@ -59,6 +59,79 @@ export default function Dashboard() {
     { name: "Gaming Chair", sales: 0 },
   ];
 
+  const allProducts = [
+    {
+      id: "PROD-001",
+      name: "Mechanical Keyboard X1",
+      category: "Keyboards",
+      price: "₹ 4,999",
+      stock: 120,
+      status: "Active",
+    },
+    {
+      id: "PROD-002",
+      name: "Gaming Mouse V2",
+      category: "Mice",
+      price: "₹ 2,499",
+      stock: 85,
+      status: "Active",
+    },
+    {
+      id: "PROD-003",
+      name: 'Curved Monitor 27"',
+      category: "Monitors",
+      price: "₹ 18,999",
+      stock: 0,
+      status: "Out of Stock",
+    },
+    {
+      id: "PROD-004",
+      name: "RGB Headset Pro",
+      category: "Headsets",
+      price: "₹ 3,999",
+      stock: 45,
+      status: "Active",
+    },
+  ];
+
+  const allUsers = [
+    {
+      id: "UID-101",
+      name: "John Doe",
+      email: "john@example.com",
+      role: "Customer",
+      joinDate: "12 Feb 2026",
+    },
+    {
+      id: "UID-102",
+      name: "Jane Smith",
+      email: "jane@example.com",
+      role: "Customer",
+      joinDate: "14 Feb 2026",
+    },
+    {
+      id: "UID-103",
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      role: "Admin",
+      joinDate: "01 Jan 2025",
+    },
+    {
+      id: "UID-104",
+      name: "Alice Brown",
+      email: "alice@example.com",
+      role: "Customer",
+      joinDate: "20 Feb 2026",
+    },
+    {
+      id: "UID-105",
+      name: "Charlie Davis",
+      email: "charlie@example.com",
+      role: "Customer",
+      joinDate: "25 Feb 2026",
+    },
+  ];
+
   const renderContent = () => {
     switch (activeTab) {
       case "dashboard":
@@ -320,21 +393,169 @@ export default function Dashboard() {
         );
 
       case "products":
+      case "products-all":
         return (
-          <div className="placeholder-content">
-            <h2>Product Management</h2>
+          <div className="table-container">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "15px",
+              }}
+            >
+              <h2>Manage Products</h2>
+              <button
+                style={{
+                  padding: "8px 15px",
+                  backgroundColor: "#FF5722",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  fontFamily: "Orbitron",
+                }}
+              >
+                + Add Product
+              </button>
+            </div>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allProducts.map((p) => (
+                  <tr key={p.id}>
+                    <td>{p.id}</td>
+                    <td>{p.name}</td>
+                    <td>{p.category}</td>
+                    <td>{p.price}</td>
+                    <td>{p.stock}</td>
+                    <td>
+                      <span
+                        className={`status-badge status-${p.status === "Active" ? "completed" : "cancelled"}`}
+                      >
+                        {p.status}
+                      </span>
+                    </td>
+                    <td>
+                      <button
+                        style={{
+                          padding: "5px 10px",
+                          margin: "0 5px",
+                          border: "none",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          fontFamily: "Rajdhani",
+                          backgroundColor: "#2196f3",
+                          color: "white",
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        style={{
+                          padding: "5px 10px",
+                          margin: "0 5px",
+                          border: "none",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          fontFamily: "Rajdhani",
+                          backgroundColor: "#ff1744",
+                          color: "white",
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         );
       case "orders":
+      case "orders-all":
         return (
           <div className="placeholder-content">
             <h2>Order Management</h2>
           </div>
         );
       case "users":
+      case "users-all":
         return (
-          <div className="placeholder-content">
-            <h2>User Management</h2>
+          <div className="table-container">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "15px",
+              }}
+            >
+              <h2>Manage Users</h2>
+            </div>
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Join Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allUsers.map((u) => (
+                  <tr key={u.id}>
+                    <td>{u.id}</td>
+                    <td>{u.name}</td>
+                    <td>{u.email}</td>
+                    <td>{u.role}</td>
+                    <td>{u.joinDate}</td>
+                    <td>
+                      <button
+                        style={{
+                          padding: "5px 10px",
+                          margin: "0 5px",
+                          border: "none",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          fontFamily: "Rajdhani",
+                          backgroundColor: "#2196f3",
+                          color: "white",
+                        }}
+                      >
+                        View
+                      </button>
+                      <button
+                        style={{
+                          padding: "5px 10px",
+                          margin: "0 5px",
+                          border: "none",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          fontFamily: "Rajdhani",
+                          backgroundColor: "#ff1744",
+                          color: "white",
+                        }}
+                      >
+                        Ban
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         );
       default:

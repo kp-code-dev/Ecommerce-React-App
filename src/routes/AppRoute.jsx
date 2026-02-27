@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Store from "../pages/Store";
 import CustomBuilds from "../pages/CustomBuilds";
-import AdminDashboard from "../pages/AdminDashboard";
+import AdminDashboard from "../Pages/AdminDashboard";
 import Checkout from "../pages/Checkout";
 
 function AppRoute() {
