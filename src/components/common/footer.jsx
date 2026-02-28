@@ -65,12 +65,12 @@ function Footer() {
         </div>
 
         <div className="footer-links">
-          <Link to="/about">About</Link>
+          <Link to="/about-us">About</Link>
           <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact-us">Contact</Link>
           <Link to="/return-policy">Return Policy</Link>
-          <Link to="/faq">FAQ</Link>
-          <Link to="/terms-of-use">Terms of Use</Link>
+          <Link to="/faqs">FAQ</Link>
+          <Link to="/term-of-use">Terms of Use</Link>
         </div>
       </div>
     </footer>

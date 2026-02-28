@@ -1,0 +1,73 @@
+.about-us-container {
+  max-width: 900px;
+  margin: 120px auto 60px;
+  padding: 40px;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #ccc;
+  line-height: 1.8;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+}
+
+.about-us-container h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #FF5722;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 87, 34, 0.3);
+  padding-bottom: 15px;
+}
+
+.about-us-container h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.about-us-container p {
+  margin-bottom: 15px;
+}
+
+.about-us-container ul,
+.about-us-container ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-us-container li {
+  margin-bottom: 10px;
+}
+
+.about-us-container a {
+  color: #FF5722;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.about-us-container a:hover {
+  text-decoration: underline;
+  color: #ff784e;
+}
+
+body.light .about-us-container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  color: #444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light .about-us-container h2 {
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .about-us-container {
+    margin: 100px 20px 40px;
+    padding: 25px;
+  }
+}

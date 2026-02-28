@@ -1,0 +1,125 @@
+.faqs-container {
+  max-width: 900px;
+  margin: 120px auto 60px;
+  padding: 40px;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.faqs-container h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #FF5722;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 87, 34, 0.3);
+  padding-bottom: 15px;
+}
+
+.faqs-container h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.faqs-container p {
+  margin-bottom: 15px;
+}
+
+.faqs-container ul,
+.faqs-container ol {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.faqs-container li {
+  margin-bottom: 10px;
+}
+
+.faqs-container a {
+  color: #FF5722;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.faqs-container a:hover {
+  text-decoration: underline;
+  color: #ff784e;
+}
+
+body.light .faqs-container {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  color: #444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light .faqs-container h2 {
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .faqs-container {
+    margin: 100px 20px 40px;
+    padding: 25px;
+  }
+}
+
+
+/* FAQ Page Specifics */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.faq-item {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  text-align: left;
+  display: block;
+}
+
+.faq-item:hover {
+  border-color: rgba(255, 87, 34, 0.3);
+  background: rgba(255, 87, 34, 0.02);
+}
+
+.faq-item h3 {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+}
+
+.faq-item p {
+  color: #bbb;
+  margin-bottom: 0;
+  display: block;
+  width: 100%;
+}
+
+body.light .faq-item h3 {
+  color: #111;
+}
+
+body.light .faq-item {
+  background: #f8f9fa;
+  border-color: #eee;
+}
+
+body.light .faq-item p {
+  color: #555;
+}

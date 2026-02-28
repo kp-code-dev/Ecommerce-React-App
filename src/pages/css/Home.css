@@ -1,16 +1,7 @@
 .theme-switch {
-    background: #00000040;
-    backdrop-filter: blur(3px);
-    padding: 0 5px;
-    border-radius: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: absolute;
     top: 80px;
-    width: 100%;
     z-index: 999;
-    margin: -10px auto;
 }
 
 /* ---------- HERO SECTION ---------- */

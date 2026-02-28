@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { ThemeContext } from "./context/themeContext";
 import { CartContextProvider } from "./context/cartContext";
 import AppRoute from "./routes/AppRoute";
+import AppleToggle from "./components/ui/appleToggle";
+import { FaPalette } from "react-icons/fa";
 import "./App.css";
 
 function App() {
@@ -20,6 +22,15 @@ function App() {
       <div className="bg-grid" />
 
       <CartContextProvider>
+        <div className="theme-switch-container">
+          <div className="theme-icon-wrapper">
+            <FaPalette size={20} />
+          </div>
+          <div className="theme-toggle-wrapper">
+            <AppleToggle />
+          </div>
+        </div>
+
         <main className="app-content">
           <AppRoute />
         </main>
