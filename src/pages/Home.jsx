@@ -223,7 +223,7 @@ function Home() {
             </div>
           </div>
 
-          <Link to="/custom-builds" className="cta">
+          <Link to="/build-pc" className="cta">
             START CONFIGURATION
           </Link>
         </div>

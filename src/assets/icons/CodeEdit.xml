@@ -1,0 +1,23 @@
+<svg 
+  viewBox="0 0 512 512" 
+  fill="currentColor" 
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect x="32" y="80" width="448" height="288" rx="24" ry="24" fill="none" stroke="currentColor" strokeWidth="72" />
+  
+  <line x1="150" y1="416" x2="362" y2="416" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="72" />
+  
+  <line x1="256" y1="368" x2="256" y2="416" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="72" />
+  
+  <line x1="256" y1="130" x2="256" y2="318" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="8" strokeDasharray="12 12" opacity="0.3" />
+
+  <g transform="translate(65, 160) scale(0.25)">
+    <polyline points="224,384 64,256 224,128" fill="none" stroke="currentColor" strokeWidth="48" strokeLinecap="round" strokeLinejoin="round"/>
+    <polyline points="416,128 576,256 416,384" fill="none" stroke="currentColor" strokeWidth="48" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="384" y1="96" x2="256" y2="416" fill="none" stroke="currentColor" strokeWidth="48" strokeLinecap="round"/>
+  </g>
+  
+  <g transform="translate(295, 162) scale(5)">
+    <path d="M14.58 3H22v18L14.58 3zM9.42 3H2v18L9.42 3zM12 9.17L16.67 21h-3.34l-1.33-3.25H9.11L12 9.17z" fill="currentColor" />
+  </g>
+</svg>

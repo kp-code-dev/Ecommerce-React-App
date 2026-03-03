@@ -11,6 +11,7 @@ import FAQs from "../pages/FAQs";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import ReturnPolicy from "../pages/ReturnPolicy";
 import TermofUse from "../pages/TermofUse";
+import BuildPC from "../pages/BuildPC";
 
 function AppRoute() {
   return (
@@ -28,6 +29,7 @@ function AppRoute() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/return-policy" element={<ReturnPolicy />} />
         <Route path="/term-of-use" element={<TermofUse />} />
+        <Route path="/build-pc" element={<BuildPC />} />
       </Routes>
     </BrowserRouter>
   );

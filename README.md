@@ -23,11 +23,15 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **Marquee**: Rotating list of top gaming brands.
   - **Category Navigation**: Quick links to Keyboards, Mice, Headsets, and PC Building.
   - **Why Choose Us**: Value proposition section.
-  - **Build Your PC**: Parallax CTA section for custom rigs.
+- **Custom PC Builder (`/build-pc`)**:
+  - **Dual Pathways**: Users select between "Custom PC" (hand-picked components) or "Budget PC" (slider-based auto-build).
+  - **State Persistence**: Component selections and tab states are saved via URL Search Params so users don't lose progress on page reload.
+  - **Interactive Component Grid**: Dynamic SVG icons and hover-glow tiles for selecting Motherboards, Processors, RAM, GPUs, Coolers, Storage, and Peripherals.
+  - **Smart Checkout Sidebar**: A sticky summary panel that calculates totals, logs compatibility ("System Health Check"), and estimates power/thermal thresholds.
 - **Store Page**:
   - **Expanded Catalog**: Comprehensive listings for **Keyboards**, **Mice**, **Cabinets**, **Processors**, and **Graphics Cards**.
   - **Product Grid**: Responsive grid layout adapting to screen size (`repeat(3, 1fr)` on desktop).
-  - **Structured Data**: Modular data files for easy management (`keyboardData.js`, `mouseData.js`, `cabinetData.js`, `processorData.js`, `graphicData.js`).
+  - **Structured Data**: Modular data files for easy management (`keyboardData.js`, `mouseData.js`, etc.).
 - **Shopping Mechanics**:
   - **Wishlist**: Toggle products in/out of wishlist with heart icon.
   - **Cart Dropdown**:
@@ -126,18 +130,43 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 
 ## 📂 Project Structure
 
-- `src/components`: Reusable UI components
-  - `ProductCard`, `Header`, `Footer`, `Sidebar`, `Topbar`, `StatCard`.
-  - `css/`: Modular CSS files for all components.
-- `src/context`: Global state providers
-  - `UserContext.jsx`: Authentication state.
-  - `CartContext.jsx`: Shopping cart state with quantity logic.
-  - `ThemeContext.jsx`: Theme switching logic and persistence.
-- `src/data`: Static data files
-  - Inventory data files for Keyboards, Mice, Components, etc.
-- `src/pages`: Route pages
-  - `Home.jsx`, `Store.jsx`, `Checkout.jsx`, `AdminDashboard.jsx`, `CustomBuilds.jsx`.
-  - `styles/`: Page-specific CSS.
+```text
+ecommerce-react-app/
+├── public/                 # Static assets (favicon, etc.)
+├── src/
+│   ├── assets/             # Banners, backgrounds, and SVGs
+│   │   ├── icons/          # Custom SVG icons & JSX icon components
+│   │   └── images/         # Static images used across the site
+│   ├── components/         # Reusable UI components
+│   │   ├── admin/          # Admin Dashboard pieces (Sidebar, Topbar)
+│   │   ├── cart/           # Cart dropdown menu and calculations
+│   │   ├── common/         # Global Layouts (Header, Footer, Modals)
+│   │   ├── ui/             # Base UI elements (Buttons, Headings)
+│   │   └── css/            # Scoped CSS for all components
+│   ├── context/            # React Context Providers
+│   │   ├── CartContext.jsx # Cart logic & quantities
+│   │   ├── ThemeContext.jsx# Light/Dark mode state
+│   │   └── UserContext.jsx # Auth & Guest modes
+│   ├── Data/               # Local JSON-like data stores
+│   │   ├── keyboardData.js # Static catalog items
+│   │   └── [...]
+│   ├── pages/              # Core Application Routes
+│   │   ├── css/            # Scoped page styling (BuildPC.css, etc)
+│   │   ├── AdminDashboard.jsx
+│   │   ├── BuildPC.jsx     # The PC Configurator Logic
+│   │   ├── CustomBuilds.jsx# Configurator Landing Page
+│   │   ├── Home.jsx        # Storefront
+│   │   ├── Store.jsx       # Main Catalog
+│   │   └── Support Pages   # (FAQs, Contact, Return, Terms, Privacy)
+│   ├── routes/             # React Router configuration
+│   ├── App.css             # Global CSS Variables & Overrides
+│   ├── App.jsx             # Main Route wrapper
+│   └── main.jsx            # React Initialization
+├── index.html              # Entry HTML
+├── package.json            # Dependencies & Scripts
+├── vite.config.js          # Vite config
+└── README.md
+```
 
 ---
 
