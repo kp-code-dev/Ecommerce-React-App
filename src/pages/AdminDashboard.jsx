@@ -13,7 +13,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../context/themeContext";
 import Topbar from "../components/admin/topbar";
 import Sidebar from "../components/admin/sidebar";
@@ -24,6 +24,13 @@ export default function Dashboard() {
   const { theme } = useContext(ThemeContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("dashboard");
+
+  useEffect(() => {
+    document.body.classList.add("admin-page");
+    return () => {
+      document.body.classList.remove("admin-page");
+    };
+  }, []);
 
   const gridColor =
     theme === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)";

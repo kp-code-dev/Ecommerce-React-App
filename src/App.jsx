@@ -14,7 +14,8 @@ function App() {
   };
 
   useEffect(() => {
-    document.body.className = theme;
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
   }, [theme]);
 
   return (

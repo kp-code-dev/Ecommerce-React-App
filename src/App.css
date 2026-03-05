@@ -62,6 +62,10 @@
   transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+body.admin-page .theme-switch-container {
+  display: none !important;
+}
+
 .theme-icon-wrapper {
   background: #FF5722;
   color: white;
