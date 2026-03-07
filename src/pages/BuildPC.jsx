@@ -15,6 +15,7 @@ import {
   BsNvidia,
 } from "react-icons/bs";
 import { MdScreenshotMonitor } from "react-icons/md";
+
 import "./css/BuildPC.css";
 
 function BuildPC() {
@@ -185,23 +186,6 @@ function BuildPC() {
                                   handleSelect("processor", "Intel Core i3")
                                 }
                               />
-                              {formData.processors
-                                .filter(
-                                  (processor) => processor.platform === "Intel",
-                                )
-                                .map((processor) => (
-                                  <Button
-                                    key={processor.id}
-                                    className={`choice-btn ${selections.processor === processor.series ? "selected" : ""}`}
-                                    title={processor.series}
-                                    onClick={() =>
-                                      handleSelect(
-                                        "processor",
-                                        processor.series,
-                                      )
-                                    }
-                                  />
-                                ))}
                               <Button
                                 className={`choice-btn ${selections.processor === "Intel Core i5" ? "selected" : ""}`}
                                 title="Intel Core i5"
