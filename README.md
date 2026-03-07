@@ -23,11 +23,12 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **Marquee**: Rotating list of top gaming brands.
   - **Category Navigation**: Quick links to Keyboards, Mice, Headsets, and PC Building.
   - **Why Choose Us**: Value proposition section.
-- **Custom PC Builder (`/build-pc`)**:
-  - **Dual Pathways**: Users select between "Custom PC" (hand-picked components) or "Budget PC" (slider-based auto-build).
-  - **State Persistence**: Component selections and tab states are saved via URL Search Params so users don't lose progress on page reload.
-  - **Interactive Component Grid**: Dynamic SVG icons and hover-glow tiles for selecting Motherboards, Processors, RAM, GPUs, Coolers, Storage, and Peripherals.
-  - **Smart Checkout Sidebar**: A sticky summary panel that calculates totals, logs compatibility ("System Health Check"), and estimates power/thermal thresholds.
+  - **Custom PC Builder (`/build-pc`)**:
+    - **Dual Pathways**: Users select between "Custom PC" (hand-picked components) or "Budget PC" (slider-based auto-build).
+    - **State Persistence**: Component selections and tab states are saved via URL Search Params so users don't lose progress on page reload.
+    - **Dynamic Progressive Flow**: Features a cascading state management system that gracefully reveals component choices step-by-step and automatically clears downstream selections if a higher-level choice is changed.
+    - **Interactive Component Grid**: Dynamic UI elements powered by comprehensive data models (`formData.js`) and high-quality assets to map and render complex component choices (Motherboards, Processors, RAM, GPUs, etc.).
+    - **Smart Checkout Sidebar**: A sticky summary panel that calculates totals, logs compatibility ("System Health Check"), and estimates power/thermal thresholds.
 - **Store Page**:
   - **Expanded Catalog**: Comprehensive listings for **Keyboards**, **Mice**, **Cabinets**, **Processors**, and **Graphics Cards**.
   - **Product Grid**: Responsive grid layout adapting to screen size (`repeat(3, 1fr)` on desktop).
@@ -67,6 +68,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 ### 🛡️ Admin Dashboard (`/admin`)
 
 - **Overview**: A comprehensive command center for store management.
+- **Isolated Theming**: Dynamically toggles specific body classes (`admin-page`) to provide an isolated and distraction-free admin environment, hiding global frontend elements like the theme switcher.
 - **Dashboard Tab**:
   - **Quick Stats**: 4 key metric cards (Sales, Orders, Products, Users) with trend indicators.
   - **Visuals**: Weekly Sales mini-chart with **theme-consistent grid lines** and **glassmorphism tooltips** (blur + transparency).
@@ -88,8 +90,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
   - **Comfort White Theme**: Premium background using `linear-gradient(180deg, #f5f6fa, #eceff4)` for better readability.
   - **Apple-Style Toggle**: Premium glassmorphism switch with animated knob.
   - **Adaptive Visuals**: Grid background (`bg-grid`) and chart elements dynamically adjust opacity and color based on the selected theme.
-  - **Persistent State**: Remembers user preference across sessions.
-  - **Global Context**: Theme state managed via `ThemeContext` API.
+  - **Robust State Persistence**: Global state managed via `ThemeContext` and safely enforced across app mounts by cleaning up and re-applying body classes to avoid stale themes.
 
 ## 🛠️ Tech Stack
 
