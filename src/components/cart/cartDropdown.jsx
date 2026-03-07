@@ -1,12 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
+import { useAuth } from "../../context/authContext";
 import "../css/cartDropdown.css";
 import { FaShoppingCart, FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 import { PiEmpty } from "react-icons/pi";
 
 function CartDropdown({ onClose }) {
   const { cart, removeFromCart, addToCart, decreaseQuantity } = useCart();
+  const { user, openLoginModal } = useAuth();
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -29,7 +31,11 @@ function CartDropdown({ onClose }) {
 
   const handleCheckout = () => {
     onClose();
-    navigate("/checkout");
+    if (!user) {
+      openLoginModal();
+    } else {
+      navigate("/checkout");
+    }
   };
 
   return (

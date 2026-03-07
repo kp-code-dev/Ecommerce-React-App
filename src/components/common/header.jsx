@@ -3,20 +3,25 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import Modal from "./modal";
 import CartDropdown from "../cart/cartDropdown";
 import { useCart } from "../../context/cartContext";
+import { useAuth } from "../../context/authContext";
 import icon from "../../assets/images/logo/logo.svg";
-import "../css/header.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch, FaBars } from "react-icons/fa";
 import { BiSolidUserCircle } from "react-icons/bi";
+import { IoMdLogOut } from "react-icons/io";
+import "../css/header.css";
 
 function Header() {
-  const [open, setOpen] = useState(false);
+  const { isLoginModalOpen, openLoginModal, closeLoginModal, user, logout } =
+    useAuth();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { cart } = useCart();
   const searchRef = useRef(null);
+  const profileRef = useRef(null);
   const inputRef = useRef(null); // Add input ref
   const navigate = useNavigate();
 
@@ -35,6 +40,9 @@ function Header() {
     function handleClickOutside(event) {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
+      }
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -99,9 +107,44 @@ function Header() {
           </button>
           {cartOpen && <CartDropdown onClose={() => setCartOpen(false)} />}
         </div>
-        <button id="btn" onClick={() => setOpen(true)}>
-          <BiSolidUserCircle size={30} />
-        </button>
+        <div style={{ position: "relative" }} ref={profileRef}>
+          <button
+            id="btn"
+            onClick={() =>
+              user ? setProfileOpen(!profileOpen) : openLoginModal()
+            }
+          >
+            <BiSolidUserCircle size={30} />
+          </button>
+          {user && profileOpen && (
+            <div className="profile-dropdown">
+              <div className="profile-links">
+                <Link to="/profile" onClick={() => setProfileOpen(false)}>
+                  Profile
+                </Link>
+                <Link to="/my-orders" onClick={() => setProfileOpen(false)}>
+                  My Orders
+                </Link>
+                <Link
+                  to="/manage-account"
+                  onClick={() => setProfileOpen(false)}
+                >
+                  Manage Account
+                </Link>
+                <button
+                  className="logout-btn"
+                  onClick={() => {
+                    setProfileOpen(false);
+                    logout();
+                  }}
+                >
+                  Log Out
+                  <IoMdLogOut />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
@@ -136,12 +179,46 @@ function Header() {
             <FaCartShopping />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </button>
-          {/* Mobile Cart Dropdown could go here, or redirect to cart page */}
         </div>
-        <button id="btn" onClick={() => setOpen(true)}>
-          <BiSolidUserCircle size={30} />
-        </button>
-        <Modal open={open} onClose={() => setOpen(false)} />
+        <div style={{ position: "relative" }}>
+          <button
+            id="btn"
+            onClick={() =>
+              user ? setProfileOpen(!profileOpen) : openLoginModal()
+            }
+          >
+            <BiSolidUserCircle size={30} />
+          </button>
+          {user && profileOpen && (
+            <div className="profile-dropdown mobile-profile-dropdown">
+              <div className="profile-header">
+                <p className="profile-name">{user.name}</p>
+                <p className="profile-email">{user.email}</p>
+              </div>
+              <div className="profile-links">
+                <Link to="#" onClick={() => setProfileOpen(false)}>
+                  Profile
+                </Link>
+                <Link to="#" onClick={() => setProfileOpen(false)}>
+                  My Orders
+                </Link>
+                <Link to="#" onClick={() => setProfileOpen(false)}>
+                  Manage Account
+                </Link>
+                <button
+                  className="logout-btn"
+                  onClick={() => {
+                    setProfileOpen(false);
+                    logout();
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+        <Modal open={isLoginModalOpen} onClose={closeLoginModal} />
       </div>
     </header>
   );

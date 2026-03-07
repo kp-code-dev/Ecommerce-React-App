@@ -79,6 +79,15 @@ function BuildPC() {
     });
   };
 
+  const handleCheckout = () => {
+    onClose();
+    if (!user) {
+      openLoginModal();
+    } else {
+      navigate("/checkout");
+    }
+  };
+
   return (
     <>
       <Header />
@@ -578,14 +587,14 @@ function BuildPC() {
                 {activeTab === "custom" && (
                   <div className="summary-row">
                     <span></span>
-                    <span>₹{Number(budget).toLocaleString("en-IN")}</span>
+                    <span>₹{Number(0).toLocaleString("en-IN")}</span>
                   </div>
                 )}
                 <div className="summary-row total-row">
                   <span>Subtotal:</span>
                   <span>
                     {activeTab === "custom"
-                      ? `₹${Number(budget).toLocaleString("en-IN")}`
+                      ? `₹${Number(0).toLocaleString("en-IN")}`
                       : "₹0"}
                   </span>
                 </div>
@@ -604,8 +613,8 @@ function BuildPC() {
                 <div className="summary-row">
                   <span>Grand Total:</span>
                   <span>
-                    {activeTab === "budget"
-                      ? `₹${Number(budget).toLocaleString("en-IN")}`
+                    {activeTab === "custom"
+                      ? `₹${Number(0).toLocaleString("en-IN")}`
                       : "₹0"}
                   </span>
                 </div>
@@ -613,7 +622,8 @@ function BuildPC() {
               <Button
                 title="Proceed to Checkout"
                 className="build-btn"
-                disabled={activeTab === "custom"}
+                disabled={activeTab === "budget" || activeTab === "custom"}
+                onClick={handleCheckout}
               />
             </div>
           </div>

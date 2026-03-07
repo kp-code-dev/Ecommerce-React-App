@@ -1,13 +1,25 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
+import { useAuth } from "../../context/authContext";
 import "../css/modal.css";
 
 function Modal({ open, onClose }) {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const { login, redirectPath } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAuth = (e) => {
+    e.preventDefault();
+    login({ email: "demo", password: "demo" });
+    if (redirectPath) {
+      navigate(redirectPath);
+    }
+  };
 
   if (!open) return null;
   return createPortal(
@@ -24,7 +36,7 @@ function Modal({ open, onClose }) {
             {isSignUp ? (
               <>
                 <p>Create your account to join the elite.</p>
-                <form className="auth-modal-form">
+                <form className="auth-modal-form" onSubmit={handleAuth}>
                   <input type="text" placeholder="Full Name" required />
                   <input type="email" placeholder="Email Address" required />
                   <div className="password-container">
@@ -70,7 +82,16 @@ function Modal({ open, onClose }) {
               <>
                 <p>Welcome back, Gamer!</p>
                 <p>Enter your credentials to access your account.</p>
-                <form className="auth-modal-form">
+                <p
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#FF5722",
+                    marginBottom: "15px",
+                  }}
+                >
+                  Demo credentials will be automatically simulated.
+                </p>
+                <form className="auth-modal-form" onSubmit={handleAuth}>
                   <input
                     type="text"
                     placeholder="Email/Mobile Number"

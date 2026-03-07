@@ -12,6 +12,9 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import ReturnPolicy from "../pages/ReturnPolicy";
 import TermofUse from "../pages/TermofUse";
 import BuildPC from "../pages/BuildPC";
+import MyOrders from "../pages/MyOrders";
+import ManageAccount from "../pages/ManageAccount";
+import Profile from "../pages/Profile";
 
 function AppRoute() {
   return (
@@ -30,6 +33,9 @@ function AppRoute() {
         <Route path="/return-policy" element={<ReturnPolicy />} />
         <Route path="/term-of-use" element={<TermofUse />} />
         <Route path="/build-pc" element={<BuildPC />} />
+        <Route path="/my-orders" element={<MyOrders />} />
+        <Route path="/manage-account" element={<ManageAccount />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

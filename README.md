@@ -47,18 +47,22 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
     - **Dynamic Payment Options**: Seamless inputs for Credit/Debit Card, UPI (with ID verification), and Cash on Delivery.
     - **Smart Logic**: Automatically calculates dynamic shipping and applies a flat ₹50 handling fee specifically for COD orders.
     - **Collision-Free Cart Engine**: Uses category-prefixed unique IDs (e.g., `keyboard-1`) to accurately track distinct items across different hardware categories.
+    - **Auth Protected Navigation**: Attempting to checkout intercepts guest users with the global login modal first, routing them dynamically back to the checkout page once authenticated.
 
 ### 👤 User Interaction & Authentication
 
 - **Authentication System**:
-  - **Guest Mode**: "Log In" button opens the Auth Modal.
-  - **Logged In Mode**: Displays user avatar (initials) and a dropdown menu (Profile, Orders, Settings, Logout).
-  - **User Context**: Global state management for user sessions.
+  - **Context API based**: Global state management via `AuthContext` to track user sessions, making authentication statuses easily accessible across components.
+  - **Guest Mode**: "Log In" button opens the Auth Modal, protecting sensitive routes and maintaining session consistency.
+  - **Logged In Mode**: Displays a user avatar icon that triggers a beautifully styled, dynamic dropdown menu.
+    - **Dropdown Links**: Quick navigation routing to Profile, My Orders, Manage Account, and a Log Out action to instantly destroy the session.
+  - **Smart Redirects**: Automatically captures user intent (e.g., clicking Checkout while unauthenticated) and passes a `redirectPath` state so they seamlessly land back at their intended destination post-login.
+  - **Demo User Integration**: Features simulated demo credentials for quick sandbox testing.
 - **Authentication Modal**:
-  - Custom modal with backdrop blur.
-  - **Isolated Styling**: Uses specific `.auth-modal` namespaces to guarantee zero conflicts with external UI libraries like Bootstrap.
+  - Custom modal with backdrop blur globally hooked into the `AuthContext`.
+  - **Isolated Styling**: Uses specific `.auth-modal` namespaces to guarantee zero conflicts with external UI libraries.
   - Toggle between **Log In** and **Sign Up** views.
-  - Real-time form input handling.
+  - Internal form handlers properly intercept submittals to route users and update global authentication state directly.
 - **Responsive Navigation**:
   - Mobile-friendly navbar with slide-down menu.
   - **Expandable Search Bar**: Smooth slide-open animation.
@@ -98,7 +102,7 @@ A high-performance, cyberpunk-themed ecommerce web application built with React 
 - **Build Tool**: [Vite](https://vitejs.dev/)
 - **Styling**: Vanilla CSS (Custom properties, CSS Variables, Flexbox/Grid)
 - **Typography**: Self-hosted Google Fonts via `@fontsource` (Rajdhani, Orbitron) for optimal performance and offline support.
-- **State Management**: React Context API (`UserContext`, `CartContext`, `ThemeContext`)
+- **State Management**: React Context API (`AuthContext`, `cartContext`, `themeContext`)
 - **Routing**: [React Router](https://reactrouter.com/)
 - **Charts**: [Recharts](https://recharts.org/) (Interactive data visualization)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/) (Fa, Md, etc.)
@@ -145,9 +149,9 @@ ecommerce-react-app/
 │   │   ├── ui/             # Base UI elements (Buttons, Headings)
 │   │   └── css/            # Scoped CSS for all components
 │   ├── context/            # React Context Providers
-│   │   ├── CartContext.jsx # Cart logic & quantities
-│   │   ├── ThemeContext.jsx# Light/Dark mode state
-│   │   └── UserContext.jsx # Auth & Guest modes
+│   │   ├── authContext.jsx # Global Auth state & redirects
+│   │   ├── cartContext.jsx # Cart logic & quantities
+│   │   └── themeContext.jsx# Light/Dark mode state
 │   ├── Data/               # Local JSON-like data stores
 │   │   ├── keyboardData.js # Static catalog items
 │   │   └── [...]
@@ -158,6 +162,9 @@ ecommerce-react-app/
 │   │   ├── CustomBuilds.jsx# Configurator Landing Page
 │   │   ├── Home.jsx        # Storefront
 │   │   ├── Store.jsx       # Main Catalog
+│   │   ├── Profile.jsx     # User Profile management
+│   │   ├── MyOrders.jsx    # User Order history
+│   │   ├── ManageAccount.jsx# Security & Settings
 │   │   └── Support Pages   # (FAQs, Contact, Return, Terms, Privacy)
 │   ├── routes/             # React Router configuration
 │   ├── App.css             # Global CSS Variables & Overrides
